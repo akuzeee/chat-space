@@ -13,6 +13,10 @@
     - integer  "user_id"                 forein_key: true
     - integer  "chat_group_id"           forein_key: true
 
+### group_members table
+    - integer  "user_id"                 foreign_key: true, null: false
+    - integer  "chat_group_id"           foreign_key: true, null: false
+
 ## Associations
 ### user model
     - has_many :messages
