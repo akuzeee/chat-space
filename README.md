@@ -20,12 +20,18 @@
 ## Associations
 ### user model
     - has_many :messages
-    - has_many :chat_groups, through: :messages
+    - has_many :group_members
+    - has_many :chat_groups,   through: :group_members
 
 ### chat_group model
     - has_many :messages
-    - has_many :users,       through: :messages
+    - has_many :group_members
+    - has_many :users,         through: :group_members
 
 ### message model
     - belongs_to :user
     - belongs_to :chat_groups
+
+### group_member model
+    - belongs_to :user
+    - belongs_to :chat_group
