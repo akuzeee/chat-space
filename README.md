@@ -30,7 +30,7 @@
 
 ### message model
     - belongs_to :user
-    - belongs_to :chat_groups
+    - belongs_to :chat_group
 
 ### group_member model
     - belongs_to :user
