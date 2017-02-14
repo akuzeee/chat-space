@@ -5,23 +5,23 @@
       .chat-user.clearfix
         %h5 Kei
         .chat-user__actions
-          .chat-user__action{href: "/chat_groups/new"}
+          .chat-user__action{href: ''}
             / %i.fa.fa-pencil-square-o
-          %a.chat-user__action{href: "/users/edit"}
+          %a.chat-user__action{href: ''}
             / %i.fa.fa-cog
       %ul.chat-groups
         %li.chat-group
-          %a.chat-group__link{href: ""}
+          %a.chat-group__link{href: ''}
             %p.chat-group__name test
             %p.chat-group__message
               whoo
         %li.chat-group
-          %a.chat-group__link{href: "/chat_groups/9732/messages"}
+          %a.chat-group__link{href: ''}
             %p.chat-group__name group2
             %p.chat-group__message
               まだメッセージはありません。
         %li.chat-group
-          %a.chat-group__link{href: "/chat_groups/9742/messages"}
+          %a.chat-group__link{href: ''}
             %p.chat-group__name group3
             %p.chat-group__message
               まだメッセージはありません。
@@ -33,17 +33,17 @@
             Members:
             %span.chat-header__user Kei
         .chat-header--right
-          %a.chat-header__edit-btn{href: "/chat_groups/9742/edit"} Edit
+          %a.chat-header__edit-btn{href: ''} Edit
       .chat-body
         %ul.chat-messages
       .chat-footer
-        %form#new_message.new_message{"accept-charset" "UTF-8", :action "/chat_groups/9742/messages", :enctype "multipart/form-data", :method "post"}
-          %input{:name "utf8", :type "hidden", :value "✓"}/
-          %input{:name "authenticity_token", :type "hidden", :value "JHuZAv5pNl3HKCQdb/pgFxw1ybemCcU6MYWditQYlTi5jahKPkd6HvsFEQIJd40Qs5+A6ZHRaH91zWFvQ8JO5g=="}/
+        %form#new_message.new_message{'accept-charset' 'UTF-8', action: '/chat_groups/9742/messages', enctype: 'multipart/form-data', method: 'post'}
+          %input{name: 'utf8', type: 'hidden', value: '✓'}/
+          %input{name: 'authenticity_token', type: 'hidden', value: 'JHuZAv5pNl3HKCQdb/pgFxw1ybemCcU6MYWditQYlTi5jahKPkd6HvsFEQIJd40Qs5+A6ZHRaH91zWFvQ8JO5g=='}/
           .chat-footer__body
-            %textarea#message_body{:name "message[body]", :placeholder "type a message", :row "1"}
+            %textarea#message_body{name: 'message[body]', placeholder: 'type a message', row: '1'}
               :preserve
             %label.chat-footer__file
-              %input#message_image{:name "message[image]", :type "file"}/
+              %input#message_image{name: 'message[image]', type: 'file'}/
               %i.fa.fa-image
-          %input{"data-disable-with" "Send", :name "commit", :type "submit", :value "Send"}
+          %input{'data-disable-with' 'Send', name: 'commit', type: 'submit', value: 'Send'}
