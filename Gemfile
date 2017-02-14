@@ -47,3 +47,5 @@ end
 
 gem 'haml'
 
+gem 'erb2haml'
+
