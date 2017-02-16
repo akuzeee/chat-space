@@ -14,16 +14,19 @@ p.layout-notice {
     height: 65px;
     padding: 35px 20px 0;
     .chat-user__name {
-      font-size: 16px;
-      font-weight: bold;
-      color: #FFFFFF;
       float: left;
+      h5 {
+        font-size: 16px;
+        font-weight: bold;
+        color: #FFFFFF;
+      }
     }
     .chat-user__actions {
       float: right;
     }
   }
   ul.chat-groups {
+    list-style: none;
     li.chat-group {
       padding: 20px 20px;
       p.chat-group__name {
@@ -31,7 +34,7 @@ p.layout-notice {
         color: #FFFFFF;
       }
       p.chat-group__message {
-        font-size: 15px;
+        font-size: 11px;
         color: #FFFFFF
       }
     }
