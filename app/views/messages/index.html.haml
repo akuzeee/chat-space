@@ -1,8 +1,8 @@
 .layout-notification
   %p.layout-notice チャットグループが作成されました。
 .contents
-  .side-content.clearfix
-    .chat-user.clearfix
+  .side-content
+    .chat-user
       .chat-user__name
         %h5 Kei
       .chat-user__actions
@@ -19,21 +19,19 @@
       %li.chat-group
         %a.chat-group__link{href: ''}
           %p.chat-group__name group2
-          %p.chat-group__message
-            まだメッセージはありません。
+          %p.chat-group__message まだメッセージはありません。
       %li.chat-group
         %a.chat-group__link{href: ''}
           %p.chat-group__name group3
-          %p.chat-group__message
-            まだメッセージはありません。
-  .chat-main
-    .chat-header.clearfix
-      .chat-header--left
-        %h2 group3
-        %p.chat-header__users
+          %p.chat-group__message まだメッセージはありません。
+  .main-content
+    .chat-header
+      .chat-header__left-content
+        %h2 Group
+        .chat-header__users
           Members:
-          %span.chat-header__user Kei
-      .chat-header--right
+          %span.user Kei MaruMaru
+      .chat-header__right-content
         %a.chat-header__edit-btn{href: ''} Edit
     .chat-body
       %ul.chat-messages
@@ -41,4 +39,4 @@
       %form#new_message.new_message{}
         .chat-footer__body
           %textarea#message_body{placeholder: 'type a message', row: '1'}
-        %input{type: 'submit', value: 'Send'}
+        %input.send-btn{type: 'submit', value: 'Send'}
