@@ -99,14 +99,19 @@ p.layout-notice {
           .chat-footer__body {
             overflow: hidden;
             width: auto;
+            position: relative; //画像アイコンをtextarea内にいれるため
             textarea#message_body {
+              float: left;
               width: 100%;
               resize: none;
               border: none;
             }
-            label.img-file-icon {
+            label.img__icon {
+              position: absolute;
+              right: 10px;
               color: #AAAAAA;
-              input#img-file {
+              cursor: pointer;
+              input#img__file {
                 display: none;
               }
             }
