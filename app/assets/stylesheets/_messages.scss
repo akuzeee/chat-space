@@ -50,6 +50,7 @@ p.layout-notice {
     margin-left: 300px;
     height: 100vh;
     background-color: #FFFFFF;
+    position: relative; //子要素のpositionを固定しても親要素のwidthを認識するようにする
     .chat-header {
       height: 96px;
       border-bottom: thin solid #eeeeee;
@@ -86,22 +87,27 @@ p.layout-notice {
     .chat-body {
       background-color: red;
     }
-    .chat-footer {
-      padding: 20px 40px;
-      background-color: #DDDDDD;
-      height: 50px;
-      form#new_message.new_message {
-        .chat-footer__body {
-          float: left
-        }
-        input.send-btn {
-          float: right;
-          background-color: #38AEF0;
-          color: #FFFFFF;
-          display: block;
-          line-height: 50px;
-          padding: 0 30px;
-          border: none;
+    .chat-footer__wrapper {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+      .chat-footer {
+        padding: 20px 40px;
+        background-color: #DDDDDD;
+        height: 50px;
+        form#new_message.new_message {
+          .chat-footer__body {
+            float: left
+          }
+          input.send-btn {
+            float: right;
+            background-color: #38AEF0;
+            color: #FFFFFF;
+            display: block;
+            line-height: 50px;
+            padding: 0 30px;
+            border: none;
+          }
         }
       }
     }
