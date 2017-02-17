@@ -1,55 +1,56 @@
-.layout-notification
-  %p.layout-notice チャットグループが作成されました。
-.contents
-  .side-content
-    .chat-user
-      .chat-user__name
-        %h5 Kei
-      .chat-user__actions
-        %a.chat-user__new-group-action{ href: '' }
-          new
-        %a.chat-user__edit-action{href: ''}
-          edit
-    %ul.chat-groups
-      %li.chat-group
-        %a.chat-group__link{href: ''}
-          %p.chat-group__name test
-          %p.chat-group__message
-            whoo
-      %li.chat-group
-        %a.chat-group__link{href: ''}
-          %p.chat-group__name group2
-          %p.chat-group__message まだメッセージはありません。
-      %li.chat-group
-        %a.chat-group__link{href: ''}
-          %p.chat-group__name group3
-          %p.chat-group__message まだメッセージはありません。
-  .main-content
-    .chat-header
-      .chat-header__left-content
-        %h2 Group
-        .chat-header__users
-          Members:
-          %span.user Kei MaruMaru
-      .chat-header__right-content
-        %a.chat-header__edit-btn{href: ''} Edit
-    .chat-body
-      %ul.chat-messages
-        %li.chat-message
-          .chat-message-header.clearfix
-            %p.chat-message__user-name
-            Kei
-            .chat-message__date
-            2016/2/17 06:27:14
-          .chat-message__body
-          Hello!
+.wrapper
+  .layout-notification
+    %p.layout-notice チャットグループが作成されました。
+  .contents
+    .side-content
+      .chat-user
+        .chat-user__name
+          %h5 Kei
+        .chat-user__actions
+          %a.chat-user__new-group-action{ href: '' }
+            new
+          %a.chat-user__edit-action{href: ''}
+            edit
+      %ul.chat-groups
+        %li.chat-group
+          %a.chat-group__link{href: ''}
+            %p.chat-group__name test
+            %p.chat-group__message
+              whoo
+        %li.chat-group
+          %a.chat-group__link{href: ''}
+            %p.chat-group__name group2
+            %p.chat-group__message まだメッセージはありません。
+        %li.chat-group
+          %a.chat-group__link{href: ''}
+            %p.chat-group__name group3
+            %p.chat-group__message まだメッセージはありません。
+    .main-content
+      .chat-header
+        .chat-header__left-content
+          %h2 Group
+          .chat-header__users
+            Members:
+            %span.user Kei MaruMaru
+        .chat-header__right-content
+          %a.chat-header__edit-btn{href: ''} Edit
+      .chat-body
+        %ul.chat-messages
+          %li.chat-message
+            .chat-message-header.clearfix
+              %p.chat-message__user-name
+              Kei
+              .chat-message__date
+              2016/2/17 06:27:14
+            .chat-message__body
+            Hello!
 
-    .chat-footer__wrapper
-      .chat-footer
-        %form#new_message.new_message{}
-          %input.send-btn{type: 'submit', value: 'Send'}
-          .chat-footer__body
-            %textarea#message_body{placeholder: 'type a message', row: '1'}
-            %label.img__icon{ for: 'img-file' }
-              画像
-              %input#img__file{ type: 'file' }
+      .chat-footer__wrapper
+        .chat-footer
+          %form#new_message.new_message{}
+            %input.send-btn{type: 'submit', value: 'Send'}
+            .chat-footer__body
+              %textarea#message_body{placeholder: 'type a message', row: '1'}
+              %label.img__icon{ for: 'img-file' }
+                画像
+                %input#img__file{ type: 'file' }
