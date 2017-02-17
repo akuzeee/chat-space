@@ -1,6 +1,5 @@
 .wrapper
-  .layout-notification
-    %p.layout-notice チャットグループが作成されました。
+  %p.notification チャットグループが作成されました。
   .contents
     .side-content
       .chat-user
@@ -13,36 +12,37 @@
             edit
       %ul.chat-groups
         %li.chat-group
-          %a.chat-group__link{href: ''}
+          %a.chat-group-link{href: ''}
             %p.chat-group__name test
             %p.chat-group__message
               yeah!
         %li.chat-group
-          %a.chat-group__link{href: ''}
+          %a.chat-group-link{href: ''}
             %p.chat-group__name test
             %p.chat-group__message
               whoo
         %li.chat-group
-          %a.chat-group__link{href: ''}
+          %a.chat-group-link{href: ''}
             %p.chat-group__name test
             %p.chat-group__message
               piyo
         %li.chat-group
-          %a.chat-group__link{href: ''}
+          %a.chat-group-link{href: ''}
             %p.chat-group__name group
             %p.chat-group__message まだメッセージはありません。
         %li.chat-group
-          %a.chat-group__link{href: ''}
+          %a.chat-group-link{href: ''}
             %p.chat-group__name group3
             %p.chat-group__message まだメッセージはありません。
     .main-content
       .chat-header
-        .chat-header__left-content
+        .chat-header--left
           %h2 Group2
           .chat-header__users
             Members:
-            %span.user Kei MaruMaru
-        .chat-header__right-content
+            %span.chat-header__user Kei
+            %span.chat-header__user MaruMaru
+        .chat-header--right
           %a.chat-header__edit-btn{href: ''} Edit
       .chat-body
         %ul.chat-messages
