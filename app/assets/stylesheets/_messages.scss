@@ -1,3 +1,9 @@
+.clearfix:after {
+  display: block;
+  clear: both;
+  content: '';
+}
+
 p.layout-notice {
   background-color: #38AEF0;
   text-align: center;
@@ -95,8 +101,33 @@ p.layout-notice {
       }
     }
     .chat-body {
-      background-color: red;
+      background-color: #fafafa; //見本と色が違うおかしい
       flex: 1;
+      ul.chat-messages {
+        margin-top: 6px;
+        margin-left: 40px;
+        li.chat-message {
+          margin-top: 40px;
+          .chat-message__header {
+            p.chat-message__user-name {
+              float: left;
+              font-size: 16px;
+              font-style: bold;
+              color: #434A54;
+            }
+            span.chat-message__date {
+              margin-left: 10px;
+              font-size: 12px;
+              color: #999999;
+            }
+          }
+          .chat-message__body {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #434A54;
+          }
+        }
+      }
     }
     .chat-footer__wrapper {
         position: absolute;
