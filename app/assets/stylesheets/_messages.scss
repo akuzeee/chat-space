@@ -97,7 +97,13 @@ p.layout-notice {
         height: 50px;
         form#new_message.new_message {
           .chat-footer__body {
-            float: left
+            overflow: hidden;
+            width: auto;
+            textarea#message_body {
+              width: 100%;
+              resize: none;
+              border: none;
+            }
           }
           input.send-btn {
             float: right;
@@ -106,6 +112,7 @@ p.layout-notice {
             display: block;
             line-height: 50px;
             padding: 0 30px;
+            margin-left: 15px;
             border: none;
           }
         }

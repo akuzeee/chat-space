@@ -38,6 +38,6 @@
     .chat-footer__wrapper
       .chat-footer
         %form#new_message.new_message{}
+          %input.send-btn{type: 'submit', value: 'Send'}
           .chat-footer__body
             %textarea#message_body{placeholder: 'type a message', row: '1'}
-          %input.send-btn{type: 'submit', value: 'Send'}
