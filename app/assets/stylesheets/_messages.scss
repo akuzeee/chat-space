@@ -104,6 +104,12 @@ p.layout-notice {
               resize: none;
               border: none;
             }
+            label.img-file-icon {
+              color: #AAAAAA;
+              input#img-file {
+                display: none;
+              }
+            }
           }
           input.send-btn {
             float: right;
