@@ -60,14 +60,16 @@ ul.chat-groups {
   }
 }
 .main-content {
-  display: flex; //chat-bodyのheightを main-content - header - footer にするため
-  flex-direction: column;
   margin-left: 300px;
   height: 100%;
   background-color: #fafafa; //見本と色が違うおかしい
-  position: relative; //子要素のpositionを固定しても親要素のwidthを認識するようにする
+  position: relative;
 }
 .chat-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 96px;
   border-bottom: thin solid #eeeeee;
   &--left {
@@ -100,10 +102,12 @@ ul.chat-groups {
 }
 
 .chat-body {
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  top: 96px;
+  bottom: 90px;
   overflow: auto;
-  height: 0;
-  flex: 1;
-  margin-bottom: 90px;
   ul.chat-messages {
     word-wrap: break-word;
     margin: 6px 40px 40px;
