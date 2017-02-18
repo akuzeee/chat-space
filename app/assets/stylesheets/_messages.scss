@@ -1,3 +1,9 @@
+html,body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
 .over-all-wrapper {
   display: flex;           //contentsのheightを 100vh - notification にする
   flex-direction: column;  //contentsのheightを 100vh - notification にする
@@ -12,6 +18,7 @@ p.notification {
   flex: 1;
   position: relative;
   width: 100vw;
+  height: 100%;
 }
 .side-content {
   position: absolute;  //main-contentを左に配置しつつ、contentsのheightを取得できる
