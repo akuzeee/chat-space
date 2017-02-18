@@ -53,9 +53,9 @@ ul.chat-groups {
     width: 100%;
     height: 100%;
     text-decoration: none;
-  }
-  &__link:hover {
-    background-color: #3f4e61;
+    &:hover {
+      background-color: #3f4e61;
+    }
   }
   &__name {
     padding: 20px 20px 5px;
