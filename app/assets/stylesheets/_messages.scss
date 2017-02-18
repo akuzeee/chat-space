@@ -1,0 +1,188 @@
+html,body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+p.notification {
+  background-color: #38AEF0;
+  color: $MainWhiteColor;
+  text-align: center;
+}
+.contents {
+  position: relative;
+  width: 100vw;
+  height: 100%;
+}
+.side-content {
+  position: absolute;  //main-contentを左に配置しつつ、contentsのheightを取得できる
+  width: 300px;
+  height: 100%;
+  background-color: #2f3e51;
+  overflow: auto;      //groupをたくさん作っても画面が縦に伸びないようにする
+}
+.chat-user {
+  height: 61px;
+  padding: 35px 20px 0;
+  background-color: #253141;
+  &__name {
+    float: left;
+  }
+  h5 {
+    font-size: 16px;
+    font-weight: bold;
+    color: $MainWhiteColor;
+  }
+  &__actions {
+    float: right;
+  }
+  &__new-group-action {
+    color: $MainWhiteColor;
+    text-decoration: none;
+  }
+  &__edit-action {
+    margin-left: 5px;
+    color: $MainWhiteColor;
+}
+}
+ul.chat-groups {
+  list-style: none;
+}
+.chat-group {
+  &__link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    &:hover {
+      background-color: #3f4e61;
+    }
+  }
+  &__name {
+    padding: 20px 20px 5px;
+    font-size: 15px;
+    color: $MainWhiteColor;
+  }
+  &__message {
+    padding: 0 20px 20px;
+    font-size: 11px;
+    color: $MainWhiteColor;
+  }
+}
+.main-content {
+  position: relative;
+  height: 100%;
+  margin-left: 300px;
+  background-color: #fafafa; //見本の色指定おかしい
+}
+.chat-header {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 96px;
+  padding: 0 40px;
+  border-bottom: thin solid #eeeeee;
+  &--left {
+    float: left;
+    margin-top: 35px;
+  }
+  h2 {
+    display: inline;  //h2の下の行間を除去
+    line-height: 0;   //h2の下の行間を除去
+    font-size: 20px;
+    color: #333333;
+    }
+  &__users {
+    line-height: 0;   //h2との間の行間を除去
+    padding-top: 15px;
+    font-size: 12px;
+    color: #999999;
+  }
+  &--right {
+    float: right;
+    margin: 28px 0;
+  }
+  &__edit-btn  {
+    display: block;
+    line-height: 40px;
+    padding: 0 20px;
+    border: thin solid #38AEF0;
+    color: #38AEF0;
+    text-decoration: none;
+  }
+}
+
+.chat-body {
+  position: absolute;
+  top: 96px;
+  right: 0px;
+  left: 0px;
+  bottom: 90px;
+  overflow: auto;
+}
+ul.chat-messages {
+  margin: 6px 40px 40px;
+  word-wrap: break-word;
+}
+.chat-message {
+  margin-top: 40px;
+  &__user-name {
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+    color: #434A54;
+  }
+  &__date {
+    margin-left: 10px;
+    font-size: 12px;
+    color: #999999;
+  }
+  &__body {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #434A54;
+  }
+}
+.chat-footer {
+  position: fixed;
+  right: 0;
+  left: 300px;
+  bottom: 0;
+  height: 50px;
+  padding: 20px 40px;
+  background-color: #DDDDDD;
+  form#new_message {
+    display: flex;
+  }
+  &__body {
+    flex: 1;
+    position: relative;       //画像アイコンをtextarea内にいれるため
+  }
+  textarea#message_body {
+    float: left;
+    width: 100%;
+    height: 50px;
+    padding-left: 10px;
+    box-sizing: border-box; //widthが親要素をはみ出るバグを回避
+    resize: none;
+    border: none;
+  }
+  label#img__icon {
+    position: absolute;
+    right: 10px;
+    line-height: 50px;
+    cursor: pointer;
+    color: #253141;
+  }
+  input#img__file {
+    display: none;
+  }
+  input.send-btn {
+    display: block;
+    line-height: 50px;
+    margin-left: 15px;
+    padding: 0 30px;
+    background-color: #38AEF0;
+    border: none;
+    color: $MainWhiteColor;
+  }
+}
