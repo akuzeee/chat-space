@@ -6,7 +6,7 @@
       .chat-user__name
         %h5 Kei
       .chat-user__actions
-        %a.chat-user__new-group-action{ href: '' }
+        = link_to edit_user_registration_path, class: 'chat-user__new-group-action' do
           = fa_icon 'pencil-square-o'
         %a.chat-user__edit-action{ href: ''}
           = fa_icon 'cog'
