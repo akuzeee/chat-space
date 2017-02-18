@@ -1,5 +1,5 @@
-.wrapper {
-  display: flex; //contentsのheightを 100vh - notice にする
+.over-all-wrapper {
+  display: flex; //contentsのheightを 100vh - notification にする
   flex-direction: column;
   height: 100vh;
 }
@@ -78,10 +78,10 @@ ul.chat-groups {
       font-size: 20px;
       color: #333333;
       display: inline;  //h2の下の行間を除去
-      line-height: 0; //h2の下の行間を除去
+      line-height: 0;   //h2の下の行間を除去
     }
   &__users {
-      line-height: 0; //h2との間の行間を削除
+      line-height: 0;   //h2との間の行間を削除
       padding-top: 15px;
       font-size: 12px;
       color: #999999;
