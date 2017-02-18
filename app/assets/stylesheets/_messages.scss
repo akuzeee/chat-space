@@ -150,13 +150,13 @@ ul.chat-messages {
   height: 50px;
   padding: 20px 40px;
   background-color: #DDDDDD;
-}
-form#new_message.new_message {
-  display: flex;
-}
-.chat-footer__body {
-  flex: 1;
-  position: relative;       //画像アイコンをtextarea内にいれるため
+  form#new_message {
+    display: flex;
+  }
+  &__body {
+    flex: 1;
+    position: relative;       //画像アイコンをtextarea内にいれるため
+  }
   textarea#message_body {
     float: left;
     width: 100%;
@@ -176,13 +176,13 @@ form#new_message.new_message {
   input#img__file {
     display: none;
   }
-}
-input.send-btn {
-  display: block;
-  line-height: 50px;
-  margin-left: 15px;
-  padding: 0 30px;
-  background-color: #38AEF0;
-  border: none;
-  color: $MainWhiteColor;
+  input.send-btn {
+    display: block;
+    line-height: 50px;
+    margin-left: 15px;
+    padding: 0 30px;
+    background-color: #38AEF0;
+    border: none;
+    color: $MainWhiteColor;
+  }
 }
