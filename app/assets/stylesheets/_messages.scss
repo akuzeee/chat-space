@@ -1,29 +1,29 @@
 .over-all-wrapper {
-  display: flex; //contentsのheightを 100vh - notification にする
-  flex-direction: column;
+  display: flex;           //contentsのheightを 100vh - notification にする
+  flex-direction: column;  //contentsのheightを 100vh - notification にする
   height: 100vh;
 }
 p.notification {
   background-color: #38AEF0;
-  text-align: center;
   color: #FFFFFF;
+  text-align: center;
 }
 .contents {
-  width: 100vw;
   flex: 1;
-  position: relative; //side-contentに position: absolute をかけるため
+  position: relative;
+  width: 100vw;
 }
 .side-content {
-  position: absolute;
+  position: absolute;  //main-contentを左に配置しつつ、contentsのheightを取得できる
   width: 300px;
   height: 100%;
   background-color: #2f3e51;
-  overflow: auto;  //groupをたくさん作っても画面が縦に伸びないようにする
+  overflow: auto;      //groupをたくさん作っても画面が縦に伸びないようにする
 }
 .chat-user {
-  background-color: #253141;
   height: 61px;
   padding: 35px 20px 0;
+  background-color: #253141;
   &__name {
     float: left;
   }
@@ -61,10 +61,10 @@ ul.chat-groups {
   }
 }
 .main-content {
-  margin-left: 300px;
-  height: 100%;
-  background-color: #fafafa; //見本と色が違うおかしい
   position: relative;
+  height: 100%;
+  margin-left: 300px;
+  background-color: #fafafa; //見本と色が違うおかしい
 }
 .chat-header {
   position: absolute;
@@ -77,13 +77,13 @@ ul.chat-groups {
     padding: 35px 40px 0;
   }
   h2 {
-    font-size: 20px;
-    color: #333333;
     display: inline;  //h2の下の行間を除去
     line-height: 0;   //h2の下の行間を除去
+    font-size: 20px;
+    color: #333333;
     }
   &__users {
-    line-height: 0;   //h2との間の行間を削除
+    line-height: 0;   //h2との間の行間を除去
     padding-top: 15px;
     font-size: 12px;
     color: #999999;
@@ -95,34 +95,34 @@ ul.chat-groups {
   &__edit-btn  {
     display: block;
     line-height: 40px;
-    color: #38AEF0;
     padding: 0 20px;
     border: thin solid #38AEF0;
+    color: #38AEF0;
     text-decoration: none;
   }
 }
 
 .chat-body {
   position: absolute;
+  top: 96px;
   right: 0px;
   left: 0px;
-  top: 96px;
   bottom: 90px;
   overflow: auto;
 }
 ul.chat-messages {
-  word-wrap: break-word;
   margin: 6px 40px 40px;
+  word-wrap: break-word;
 }
 .chat-message {
   margin-top: 40px;
   &__user-name {
     float: left;
     font-size: 16px;
-    font-style: bold;
+    font-weight: bold;
     color: #434A54;
   }
-  &__date {              //user-name に float をかけてもインライン要素なので潜り込まない
+  &__date {            //user-nameにfloatをかけてもdateはインライン要素なので潜り込まない
     margin-left: 10px;
     font-size: 12px;
     color: #999999;
@@ -145,7 +145,7 @@ ul.chat-messages {
 .chat-footer__body {
   position: relative;    //画像アイコンをtextarea内にいれるため
   overflow: hidden;      //sendボタンを固定幅、bodyを可変幅にする
-  width: auto;
+  width: auto;           //sendボタンを固定幅、bodyを可変幅にする
   textarea#message_body {
     float: left;
     width: 100%;
@@ -165,14 +165,14 @@ ul.chat-messages {
   }
 }
 input.send-btn {
-  float: right;
   display: block;
+  float: right;
   line-height: 50px;
-  padding: 0 30px;
   margin-left: 15px;
-  color: #FFFFFF;
+  padding: 0 30px;
   background-color: #38AEF0;
   border: none;
+  color: #FFFFFF;
 }
 
 
