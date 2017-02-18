@@ -1,13 +1,7 @@
 html,body {
-    height: 100%;
-    padding: 0;
-    margin: 0;
-}
-
-.over-all-wrapper {
-  display: flex;           //contentsのheightを 100vh - notification にする
-  flex-direction: column;  //contentsのheightを 100vh - notification にする
-  height: 100vh;
+  height: 100%;
+  padding: 0;
+  margin: 0;
 }
 p.notification {
   background-color: #38AEF0;
@@ -15,7 +9,6 @@ p.notification {
   text-align: center;
 }
 .contents {
-  flex: 1;
   position: relative;
   width: 100vw;
   height: 100%;

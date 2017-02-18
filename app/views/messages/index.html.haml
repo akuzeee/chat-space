@@ -1,84 +1,84 @@
-.over-all-wrapper
-  %p.notification チャットグループが作成されました。
-  .contents
-    .side-content
-      .chat-user
-        .chat-user__name
-          %h5 Kei
-        .chat-user__actions
-          %a.chat-user__new-group-action{ href: '' }
-            = fa_icon 'pencil-square-o'
-          %a.chat-user__edit-action{ href: ''}
-            = fa_icon 'cog'
-      %ul.chat-groups
-        %li.chat-group
-          %a.chat-group__link{ href: '' }
-            %p.chat-group__name test
-            %p.chat-group__message
-              yeah!
-        %li.chat-group
-          %a.chat-group__link{ href: '' }
-            %p.chat-group__name test
-            %p.chat-group__message
-              whoo
-        %li.chat-group
-          %a.chat-group__link{ href: '' }
-            %p.chat-group__name test
-            %p.chat-group__message
-              piyo
-        %li.chat-group
-          %a.chat-group__link{ href: '' }
-            %p.chat-group__name group
-            %p.chat-group__message まだメッセージはありません。
-        %li.chat-group
-          %a.chat-group__link{ href: '' }
-            %p.chat-group__name group3
-            %p.chat-group__message まだメッセージはありません。
-    .main-content
-      .chat-header
-        .chat-header--left
-          %h2 Group2
-          .chat-header__users
-            Members:
-            %span.chat-header__user Kei
-            %span.chat-header__user MaruMaru
-        .chat-header--right
-          %a.chat-header__edit-btn{ href: '' } Edit
-      .chat-body
-        %ul.chat-messages
-          %li.chat-message
-            %p.chat-message__user-name
-              Kei
-            %span.chat-message__date
-              2016/2/17 06:27:14
-            .chat-message__body
-              Hello!
-          %li.chat-message
-            %p.chat-message__user-name
-              MaruMaru
-            %span.chat-message__date
-              2016/2/17 06:27:15
-            .chat-message__body
-              OK, woman
-          %li.chat-message
-            %p.chat-message__user-name
-              Kei
-            %span.chat-message__date
-              2016/2/17 06:27:14
-            .chat-message__body
-              aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-          %li.chat-message
-            %p.chat-message__user-name
-              Kei
-            %span.chat-message__date
-              2016/2/17 06:27:14
-            .chat-message__body
-              aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-      .chat-footer
-        %form#new_message.new_message{}
-          .chat-footer__body
-            %textarea#message_body{ placeholder: 'type a message' }
-            %label#img__icon{ for: 'img__file' }
-              = fa_icon 'image'
-              %input#img__file{ type: 'file' }
-          %input.send-btn{ type: 'submit', value: 'Send' }
+
+%p.notification チャットグループが作成されました。
+.contents
+  .side-content
+    .chat-user
+      .chat-user__name
+        %h5 Kei
+      .chat-user__actions
+        %a.chat-user__new-group-action{ href: '' }
+          = fa_icon 'pencil-square-o'
+        %a.chat-user__edit-action{ href: ''}
+          = fa_icon 'cog'
+    %ul.chat-groups
+      %li.chat-group
+        %a.chat-group__link{ href: '' }
+          %p.chat-group__name test
+          %p.chat-group__message
+            yeah!
+      %li.chat-group
+        %a.chat-group__link{ href: '' }
+          %p.chat-group__name test
+          %p.chat-group__message
+            whoo
+      %li.chat-group
+        %a.chat-group__link{ href: '' }
+          %p.chat-group__name test
+          %p.chat-group__message
+            piyo
+      %li.chat-group
+        %a.chat-group__link{ href: '' }
+          %p.chat-group__name group
+          %p.chat-group__message まだメッセージはありません。
+      %li.chat-group
+        %a.chat-group__link{ href: '' }
+          %p.chat-group__name group3
+          %p.chat-group__message まだメッセージはありません。
+  .main-content
+    .chat-header
+      .chat-header--left
+        %h2 Group2
+        .chat-header__users
+          Members:
+          %span.chat-header__user Kei
+          %span.chat-header__user MaruMaru
+      .chat-header--right
+        %a.chat-header__edit-btn{ href: '' } Edit
+    .chat-body
+      %ul.chat-messages
+        %li.chat-message
+          %p.chat-message__user-name
+            Kei
+          %span.chat-message__date
+            2016/2/17 06:27:14
+          .chat-message__body
+            Hello!
+        %li.chat-message
+          %p.chat-message__user-name
+            MaruMaru
+          %span.chat-message__date
+            2016/2/17 06:27:15
+          .chat-message__body
+            OK, woman
+        %li.chat-message
+          %p.chat-message__user-name
+            Kei
+          %span.chat-message__date
+            2016/2/17 06:27:14
+          .chat-message__body
+            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        %li.chat-message
+          %p.chat-message__user-name
+            Kei
+          %span.chat-message__date
+            2016/2/17 06:27:14
+          .chat-message__body
+            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    .chat-footer
+      %form#new_message.new_message{}
+        .chat-footer__body
+          %textarea#message_body{ placeholder: 'type a message' }
+          %label#img__icon{ for: 'img__file' }
+            = fa_icon 'image'
+            %input#img__file{ type: 'file' }
+        %input.send-btn{ type: 'submit', value: 'Send' }
