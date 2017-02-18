@@ -35,6 +35,14 @@ p.notification {
   &__actions {
     float: right;
   }
+  &__new-group-action {
+    color: #FFFFFF;
+    text-decoration: none;
+  }
+  &__edit-action {
+    margin-left: 5px;
+    color: #FFFFFF;
+}
 }
 ul.chat-groups {
   list-style: none;
@@ -157,8 +165,9 @@ ul.chat-messages {
   label#img__icon {
     position: absolute;
     right: 10px;
-    color: #AAAAAA;
+    line-height: 50px;
     cursor: pointer;
+    color: #253141;
   }
   input#img__file {
     display: none;

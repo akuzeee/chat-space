@@ -7,31 +7,31 @@
           %h5 Kei
         .chat-user__actions
           %a.chat-user__new-group-action{ href: '' }
-            new
-          %a.chat-user__edit-action{href: ''}
-            edit
+            = fa_icon 'pencil-square-o'
+          %a.chat-user__edit-action{ href: ''}
+            = fa_icon 'cog'
       %ul.chat-groups
         %li.chat-group
-          %a.chat-group__link{href: ''}
+          %a.chat-group__link{ href: '' }
             %p.chat-group__name test
             %p.chat-group__message
               yeah!
         %li.chat-group
-          %a.chat-group__link{href: ''}
+          %a.chat-group__link{ href: '' }
             %p.chat-group__name test
             %p.chat-group__message
               whoo
         %li.chat-group
-          %a.chat-group__link{href: ''}
+          %a.chat-group__link{ href: '' }
             %p.chat-group__name test
             %p.chat-group__message
               piyo
         %li.chat-group
-          %a.chat-group__link{href: ''}
+          %a.chat-group__link{ href: '' }
             %p.chat-group__name group
             %p.chat-group__message まだメッセージはありません。
         %li.chat-group
-          %a.chat-group__link{href: ''}
+          %a.chat-group__link{ href: '' }
             %p.chat-group__name group3
             %p.chat-group__message まだメッセージはありません。
     .main-content
@@ -43,7 +43,7 @@
             %span.chat-header__user Kei
             %span.chat-header__user MaruMaru
         .chat-header--right
-          %a.chat-header__edit-btn{href: ''} Edit
+          %a.chat-header__edit-btn{ href: '' } Edit
       .chat-body
         %ul.chat-messages
           %li.chat-message
@@ -76,9 +76,9 @@
               aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
       .chat-footer
         %form#new_message.new_message{}
-          %input.send-btn{type: 'submit', value: 'Send'}
+          %input.send-btn{ type: 'submit', value: 'Send' }
           .chat-footer__body
-            %textarea#message_body{placeholder: 'type a message', row: '1'}
-            %label#img__icon{ for: 'img-file' }
-              画像
+            %textarea#message_body{ placeholder: 'type a message', row: '1' }
+            %label#img__icon{ for: 'img__file' }
+              = fa_icon 'image'
               %input#img__file{ type: 'file' }
