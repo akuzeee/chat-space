@@ -72,17 +72,18 @@ ul.chat-groups {
   position: relative;
   height: 100%;
   margin-left: 300px;
-  background-color: #fafafa; //見本と色が違うおかしい
+  background-color: #fafafa; //見本の色指定おかしい
 }
 .chat-header {
   position: absolute;
   left: 0;
   right: 0;
   height: 96px;
+  padding: 0 40px;
   border-bottom: thin solid #eeeeee;
   &--left {
     float: left;
-    padding: 35px 40px 0;
+    margin-top: 35px;
   }
   h2 {
     display: inline;  //h2の下の行間を除去
@@ -98,7 +99,7 @@ ul.chat-groups {
   }
   &--right {
     float: right;
-    margin: 28px 40px;
+    margin: 28px 0;
   }
   &__edit-btn  {
     display: block;
@@ -130,7 +131,7 @@ ul.chat-messages {
     font-weight: bold;
     color: #434A54;
   }
-  &__date {            //user-nameにfloatをかけてもdateはインライン要素なので潜り込まない
+  &__date {
     margin-left: 10px;
     font-size: 12px;
     color: #999999;
