@@ -150,15 +150,18 @@ ul.chat-messages {
   padding: 20px 40px;
   background-color: #DDDDDD;
 }
+form#new_message.new_message {
+  display: flex;
+}
 .chat-footer__body {
-  position: relative;    //画像アイコンをtextarea内にいれるため
-  overflow: hidden;      //sendボタンを固定幅、bodyを可変幅にする
-  width: auto;           //sendボタンを固定幅、bodyを可変幅にする
+  flex: 1;
+  position: relative;       //画像アイコンをtextarea内にいれるため
   textarea#message_body {
     float: left;
     width: 100%;
     height: 50px;
     padding-left: 10px;
+    box-sizing: border-box; //widthが親要素をはみ出るバグを回避
     resize: none;
     border: none;
   }
@@ -175,7 +178,6 @@ ul.chat-messages {
 }
 input.send-btn {
   display: block;
-  float: right;
   line-height: 50px;
   margin-left: 15px;
   padding: 0 30px;
