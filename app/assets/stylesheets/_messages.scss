@@ -5,7 +5,7 @@ html,body {
 }
 p.notification {
   background-color: #38AEF0;
-  color: #FFFFFF;
+  color: $MainWhiteColor;
   text-align: center;
 }
 .contents {
@@ -30,18 +30,18 @@ p.notification {
   h5 {
     font-size: 16px;
     font-weight: bold;
-    color: #FFFFFF;
+    color: $MainWhiteColor;
   }
   &__actions {
     float: right;
   }
   &__new-group-action {
-    color: #FFFFFF;
+    color: $MainWhiteColor;
     text-decoration: none;
   }
   &__edit-action {
     margin-left: 5px;
-    color: #FFFFFF;
+    color: $MainWhiteColor;
 }
 }
 ul.chat-groups {
@@ -60,12 +60,12 @@ ul.chat-groups {
   &__name {
     padding: 20px 20px 5px;
     font-size: 15px;
-    color: #FFFFFF;
+    color: $MainWhiteColor;
   }
   &__message {
     padding: 0 20px 20px;
     font-size: 11px;
-    color: #FFFFFF;
+    color: $MainWhiteColor;
   }
 }
 .main-content {
@@ -184,7 +184,5 @@ input.send-btn {
   padding: 0 30px;
   background-color: #38AEF0;
   border: none;
-  color: #FFFFFF;
+  color: $MainWhiteColor;
 }
-
-
