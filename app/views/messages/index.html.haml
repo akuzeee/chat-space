@@ -1,5 +1,5 @@
-
-%p.notification チャットグループが作成されました。
+- flash.each do |key, value|
+  = content_tag :p, value, class: "notification"
 .contents
   .side-content
     .chat-user
