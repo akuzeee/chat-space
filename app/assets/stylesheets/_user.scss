@@ -1,13 +1,13 @@
 .account-page {
-  .account-page__inner {
+  &__inner {
     width: 980px;
     margin: 60px auto;
     padding: 60px;
-    background-color: #fff;
+    background-color: $MainWhiteColor;;
     border: 1px solid #ddd;
     border-radius: 5px;
 
-    .account-page__inner--left, .account-page__inner--right {
+    &__inner--left, &__inner--right {
       float: left;
       width: 50%;
     }
@@ -18,7 +18,7 @@
     }
   }
 
-  .account-page__header {
+  &__header {
     h2 {
       margin-bottom: 10px;
       letter-spacing: 3px;
@@ -42,7 +42,7 @@
 
     .btn {
       margin-top: 20px;
-      color: #fff;
+      color: $MainWhiteColor;;
       background-color: #ccc;
       font-size: 14px;
     }
@@ -85,7 +85,7 @@
   input[type='submit'] {
     float: left;
     margin-top: 20px;
-    color: #fff;
+    color: $MainWhiteColor;;
     background-color: #38aef0;
   }
 
