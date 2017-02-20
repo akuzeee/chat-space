@@ -1,14 +1,13 @@
-
-%p.notification チャットグループが作成されました。
+= render partial: 'common/notification'
 .contents
   .side-content
     .chat-user
       .chat-user__name
         %h5 Kei
       .chat-user__actions
-        %a.chat-user__new-group-action{ href: '' }
-          = fa_icon 'pencil-square-o'
         %a.chat-user__edit-action{ href: ''}
+          = fa_icon 'pencil-square-o'
+        = link_to edit_user_registration_path, class: 'chat-user__new-group-action' do
           = fa_icon 'cog'
     %ul.chat-groups
       %li.chat-group
