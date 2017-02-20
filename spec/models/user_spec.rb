@@ -1,7 +1,7 @@
 require 'rails_helper'
 describe User do
   describe '#create' do
-    it 'is valid with all elements' do
+    it 'is valid with all attributes' do
       user = build(:user)
       expect(user).to be_valid
     end
@@ -38,7 +38,7 @@ describe User do
     it 'is invalid when password has less than 8 characters' do
       user = build(:user, password: 'hogehog', password_confirmation: 'hogehog')
       user.valid?
-      expect(user.errors[:password][0]).to include('は8文字以上で入力してください。')
+      expect(user.errors[:password]).to include('は8文字以上で入力してください。')
     end
 
     it 'is invalid when email has already existed' do
