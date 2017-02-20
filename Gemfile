@@ -47,6 +47,10 @@ group :development do
   gem 'spring'
 end
 
+group :test do
+  gem 'faker'
+end
+
 gem 'haml-rails'
 gem 'font-awesome-rails'
 gem 'devise'
