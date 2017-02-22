@@ -1,5 +1,5 @@
-- flash.each do |key, value|
-  %div.class.chat-group-form__errors
-    %h2 1 error prohibited this chat_group from being saved:
-    %ul
-      = content_tag(:li, value)
+%div.class.chat-group-form__errors
+  %h2 #{errors.length} error prohibited this chat_group from being saved:
+  %ul
+    - errors.each do |message|
+      %li #{ message }

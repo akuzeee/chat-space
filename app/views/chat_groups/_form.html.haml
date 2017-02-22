@@ -1,10 +1,11 @@
-= render partial: 'error_flash'
-= form_for(@chat_group) do |f|
+- if flash[:alert] == 'alert'
+  = render 'error_flash', errors: chat_group.errors.full_messages if flash.present?
+= form_for(chat_group) do |f|
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
       = f.label :name, 'グループ名', class: 'chat-group-form__label'
     .chat-group-form__field--right
-      = f.text_field :name, placeholder: 'グループ名を入力してください', id: 'chat_group_name', class: 'chat-group-form__input', required: true,  aria: { required: true } #required: true のバグを取り除くためinput_htmlを用いた
+      = f.text_field :name, placeholder: 'グループ名を入力してください', id: 'chat_group_name', class: 'chat-group-form__input'
   / TODO: グループメンバーの編集
   / .chat-group-form__field.clearfix
   /   .chat-group-form__field--left

@@ -10,6 +10,7 @@ class ChatGroupsController < ApplicationController
     if @chat_group.save
       redirect_to root_path, notice: '新規グループを作成しました'
     else
+      flash[:alert] = 'alert'
       render :new
     end
   end
@@ -21,6 +22,7 @@ class ChatGroupsController < ApplicationController
     if @chat_group.update(chat_group_params)
       redirect_to root_path, notice: 'グループを更新しました'
     else
+      flash[:alert] = 'alert'
       render :edit
     end
   end
