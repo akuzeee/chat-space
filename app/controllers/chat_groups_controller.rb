@@ -4,7 +4,7 @@ class ChatGroupsController < ApplicationController
   end
 
   def create
-    ChatGroup.create(create_params)
+    ChatGroup.create(chat_group_params)
     redirect_to :root and return
   end
 
@@ -14,16 +14,12 @@ class ChatGroupsController < ApplicationController
   end
 
   def update
-    ChatGroup.find(params[:id]).update(update_params)
+    ChatGroup.find(params[:id]).update(chat_group_params)
     redirect_to :root and return
   end
 
   private
-  def create_params
-    params.require(:chat_group).permit(:name)
-  end
-
-  def update_params
+  def chat_group_params
     params.require(:chat_group).permit(:name)
   end
 end
