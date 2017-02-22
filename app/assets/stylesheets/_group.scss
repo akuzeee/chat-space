@@ -41,6 +41,7 @@
 
   &__field {
     margin-top: 30px;
+    @include clearfix();
 
     &--left {
       float: left;
@@ -54,6 +55,10 @@
       float: right;
       width: 70%;
     }
+  }
+
+  &__search {
+    @include clearfix();
   }
 
   &__label {
@@ -76,6 +81,7 @@
     line-height: 50px;
     font-size: 14px;
     border-bottom: 1px solid #ddd;
+    @include clearfix();
 
     &__name {
       float: left;
