@@ -1,5 +1,6 @@
 .chat-group-form
   %h1 チャットグループ編集
+  = render partial: 'common/error_flash'
   = form_for(@chat_group) do |f|
     .chat-group-form__field.clearfix
       .chat-group-form__field--left

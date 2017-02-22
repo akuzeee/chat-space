@@ -4,8 +4,13 @@ class ChatGroupsController < ApplicationController
   end
 
   def create
-    ChatGroup.create(chat_group_params)
-    redirect_to :root and return
+    chat_group = ChatGroup.new(chat_group_params)
+    if chat_group[:name].present?
+      chat_group.save
+      redirect_to :root, flash: { success: '新規グループを作成しました' }
+    else
+      redirect_to ({ action: :new }), flash: { warning: 'グループ名を入力してください' }
+    end
   end
 
   def edit
@@ -14,8 +19,12 @@ class ChatGroupsController < ApplicationController
   end
 
   def update
-    ChatGroup.find(params[:id]).update(chat_group_params)
-    redirect_to :root and return
+    if chat_group_params[:name].present?
+      ChatGroup.find(params[:id]).update(chat_group_params)
+      redirect_to :root, flash: { success: 'グループを更新しました' }
+    else
+      redirect_to ({ action: :new }), flash: { warning: 'グループ名を入力してください' }
+    end
   end
 
   private

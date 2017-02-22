@@ -1,0 +1,5 @@
+- flash.each do |key, value|
+  = content_tag(:div, class: "chat-group-form__errors") do
+    = content_tag(:h2, '1 error prohibited this chat_group from being saved:')
+    %ul
+      = content_tag(:li, value)
