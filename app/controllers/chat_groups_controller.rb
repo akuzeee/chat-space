@@ -23,7 +23,7 @@ class ChatGroupsController < ApplicationController
       redirect_to root_path, notice: 'グループを更新しました'
     else
       flash[:alert] = 'グループ名を入力してください'
-      render 'edit'
+      render 'edit' #なぜかprefixでやると missing template になる
     end
   end
 
