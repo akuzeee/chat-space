@@ -18,12 +18,12 @@ class ChatGroupsController < ApplicationController
   end
 
   def update
-    chat_group = ChatGroup.find(params[:id])
-    if chat_group.update(chat_group_params)
+    @chat_group = ChatGroup.find(params[:id])
+    if @chat_group.update(chat_group_params)
       redirect_to root_path, notice: 'グループを更新しました'
     else
       flash[:alert] = 'グループ名を入力してください'
-      render edit_chat_group_path
+      render 'edit'
     end
   end
 
