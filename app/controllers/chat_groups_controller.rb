@@ -6,9 +6,10 @@ class ChatGroupsController < ApplicationController
   def create
     @chat_group = ChatGroup.new(chat_group_params)
     if @chat_group.save
-      redirect_to root_path, flash: { success: '新規グループを作成しました' }
+      redirect_to root_path, notice: '新規グループを作成しました'
     else
-      redirect_to new_chat_group_path, flash: { warning: 'グループ名を入力してください' }
+      flash[:alert] = 'グループ名を入力してください'
+      render new_chat_group_path
     end
   end
 
@@ -19,9 +20,10 @@ class ChatGroupsController < ApplicationController
   def update
     chat_group = ChatGroup.find(params[:id])
     if chat_group.update(chat_group_params)
-      redirect_to root_path, flash: { success: 'グループを更新しました' }
+      redirect_to root_path, notice: 'グループを更新しました'
     else
-      redirect_to edit_chat_group_path, flash: { warning: 'グループ名を入力してください' }
+      flash[:alert] = 'グループ名を入力してください'
+      render edit_chat_group_path
     end
   end
 
