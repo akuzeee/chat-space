@@ -13,8 +13,17 @@ class ChatGroupsController < ApplicationController
     @chat_group = ChatGroup.find(1)
   end
 
+  def update
+    ChatGroup.find(params[:id]).update(update_params)
+    redirect_to :root and return
+  end
+
   private
   def create_params
+    params.require(:chat_group).permit(:name)
+  end
+
+  def update_params
     params.require(:chat_group).permit(:name)
   end
 end
