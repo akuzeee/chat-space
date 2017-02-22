@@ -2,9 +2,9 @@
 = form_for(@chat_group) do |f|
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
-      = f.label :name, 'グループ名', { class: 'chat-group-form__label' }
+      = f.label :name, 'グループ名', class: 'chat-group-form__label'
     .chat-group-form__field--right
-      = f.text_field :name, input_html: { placeholder: 'グループ名を入力してください', id: 'chat_group_name', class: 'chat-group-form__input', required: true } #required: true のバグを取り除くためinput_htmlを用いた
+      = f.text_field :name, placeholder: 'グループ名を入力してください', id: 'chat_group_name', class: 'chat-group-form__input', required: true,  aria: { required: true } #required: true のバグを取り除くためinput_htmlを用いた
   / TODO: グループメンバーの編集
   / .chat-group-form__field.clearfix
   /   .chat-group-form__field--left
@@ -24,4 +24,4 @@
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
     .chat-group-form__field--right
-      = f.submit 'Save', { class: 'chat-group-form__action-btn' }
+      = f.submit 'Save', class: 'chat-group-form__action-btn'
