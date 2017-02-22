@@ -19,7 +19,7 @@ class ChatGroupsController < ApplicationController
     if ChatGroup.find(params[:id]).update(chat_group_params)
       redirect_to :root, flash: { success: 'グループを更新しました' }
     else
-      redirect_to ({ action: :new }), flash: { warning: 'グループ名を入力してください' }
+      redirect_to ({ action: :edit }), flash: { warning: 'グループ名を入力してください' }
     end
   end
 
