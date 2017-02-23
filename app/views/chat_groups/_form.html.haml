@@ -1,5 +1,5 @@
-- if flash[:alert] == 'alert'
-  = render 'error_flash', errors: chat_group.errors.full_messages if flash.present?
+- if chat_group.errors.any?
+  = render 'error_flash', errors: chat_group.errors.full_messages
 = form_for(chat_group) do |f|
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
