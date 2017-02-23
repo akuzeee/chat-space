@@ -5,10 +5,11 @@
       .chat-user__name
         %h5 Kei
       .chat-user__actions
-        %a.chat-user__edit-action{ href: ''}
+        = link_to new_chat_group_path, class: 'chat-user__new-group-action' do
           = fa_icon 'pencil-square-o'
-        = link_to edit_user_registration_path, class: 'chat-user__new-group-action' do
+        = link_to edit_user_registration_path, class: 'chat-user__edit-action' do
           = fa_icon 'cog'
+    / TODO: 部分テンプレート化
     %ul.chat-groups
       %li.chat-group
         %a.chat-group__link{ href: '' }
@@ -35,6 +36,7 @@
           %p.chat-group__message まだメッセージはありません。
   .main-content
     .chat-header
+      / TODO: 選択したグループの情報を取得して表示
       .chat-header--left
         %h2 Group2
         .chat-header__users

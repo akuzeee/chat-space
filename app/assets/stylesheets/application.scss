@@ -1,5 +1,7 @@
 @import './reset';
 @import 'font-awesome';
+@import './mixin/*';
 @import './config/variable';
 @import './messages';
-@import './user'
+@import './user';
+@import './group';
