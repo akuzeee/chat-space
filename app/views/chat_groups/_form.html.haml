@@ -20,8 +20,6 @@
       #chat-group-users
         #chat-group-user-22.chat-group-user.clearfix
           = collection_check_boxes(:chat_group, :user_ids, users.all, :id, :name, include_hidden: false)
-          / %input{ name: 'chat_group[user_ids][]', type: 'hidden', value: '22' }
-          / %p.chat-group-user__name seo_kyohei
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
     .chat-group-form__field--right
