@@ -1,5 +1,6 @@
 class ChatGroupsController < ApplicationController
   before_action :set_chat_group, only: [:edit, :update]
+  before_action :set_users, only: [:new, :edit]
 
   def new
     @chat_group = ChatGroup.new
@@ -30,7 +31,16 @@ class ChatGroupsController < ApplicationController
     @chat_group = ChatGroup.find(params[:id])
   end
 
+  def set_users
+    @users = User.all
+  end
+
   def chat_group_params
-    params.require(:chat_group).permit(:name)
+    params.require(:chat_group).permit(:name).merge(group_members_attributes_params)
+  end
+
+  def group_members_attributes_params
+    ids = params.require(:chat_group)[:user_ids]
+    return { group_members_attributes: ids.map{ |id| { user_id: id } } }
   end
 end
