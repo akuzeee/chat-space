@@ -1,6 +1,6 @@
 class ChatGroupsController < ApplicationController
-  before_action :set_chat_group, only: [:edit, :update]
-  before_action :set_users, only: [:new, :edit]
+  before_action :set_chat_group, only: %i(edit update)
+  before_action :set_users, only: %i(new edit)
 
   def new
     @chat_group = ChatGroup.new
