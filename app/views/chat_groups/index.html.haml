@@ -16,13 +16,4 @@
             %p.chat-group__name #{ chat_group.name }
             %p.chat-group__message
               yeah!
-  .main-content
-    = render 'show'
-    .chat-footer
-      %form#new_message{}
-        .chat-footer__body
-          %textarea#message_body{ placeholder: 'type a message' }
-          %label#img__icon{ for: 'img__file' }
-            = fa_icon 'image'
-            %input#img__file{ type: 'file' }
-        %input.send-btn{ type: 'submit', value: 'Send' }
+  = render 'show'
