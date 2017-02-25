@@ -53,6 +53,6 @@ class ChatGroupsController < ApplicationController
   end
 
   def reject_nonmember
-    redirect_to :root unless GroupMember.exists?(chat_group_id: params[:id], user_id: current_user.id)
+    redirect_to :root unless current_user.join_in?(@chat_group)
   end
 end
