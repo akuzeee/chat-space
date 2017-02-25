@@ -1,7 +1,7 @@
 class ChatGroupsController < ApplicationController
   before_action :set_chat_group,  only: %i(show edit update)
   before_action :set_chat_groups, only: %i(show index)
-  before_action :set_users,       only: %i(new edit)
+  before_action :set_users,       only: %i(new edit create update)
   before_action :redirect,        only: %i(show edit)
 
   def index
