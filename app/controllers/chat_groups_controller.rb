@@ -1,6 +1,14 @@
 class ChatGroupsController < ApplicationController
-  before_action :set_chat_group, only: %i(edit update)
+  before_action :set_chat_group, only: %i(show edit update)
   before_action :set_users, only: %i(new edit)
+
+  def index
+    @chat_groups = ChatGroup.order('created_at DESC')
+  end
+
+  def show
+    render :index
+  end
 
   def new
     @chat_group = ChatGroup.new

@@ -3,37 +3,19 @@
   .side-content
     .chat-user
       .chat-user__name
-        %h5 Kei
+        %h5 #{ current_user.name }
       .chat-user__actions
         = link_to new_chat_group_path, class: 'chat-user__new-group-action' do
           = fa_icon 'pencil-square-o'
         = link_to edit_user_registration_path, class: 'chat-user__edit-action' do
           = fa_icon 'cog'
-    / TODO: 部分テンプレート化
     %ul.chat-groups
-      %li.chat-group
-        %a.chat-group__link{ href: '' }
-          %p.chat-group__name test
-          %p.chat-group__message
-            yeah!
-      %li.chat-group
-        %a.chat-group__link{ href: '' }
-          %p.chat-group__name test
-          %p.chat-group__message
-            whoo
-      %li.chat-group
-        %a.chat-group__link{ href: '' }
-          %p.chat-group__name test
-          %p.chat-group__message
-            piyo
-      %li.chat-group
-        %a.chat-group__link{ href: '' }
-          %p.chat-group__name group
-          %p.chat-group__message まだメッセージはありません。
-      %li.chat-group
-        %a.chat-group__link{ href: '' }
-          %p.chat-group__name group3
-          %p.chat-group__message まだメッセージはありません。
+      - @chat_groups.each do |chat_group|
+        %li.chat-group
+          = link_to chat_group_path(chat_group), class: 'chat-group__link' do
+            %p.chat-group__name #{ chat_group.name }
+            %p.chat-group__message
+              yeah!
   .main-content
     = render 'show'
     .chat-footer
