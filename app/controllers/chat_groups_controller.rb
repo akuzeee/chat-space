@@ -1,8 +1,10 @@
 class ChatGroupsController < ApplicationController
-  before_action :set_chat_group,   only: %i(show edit update)
-  before_action :set_chat_groups,  only: %i(show index)
-  before_action :set_users,        only: %i(new edit create update)
-  before_action :reject_nonmember, only: %i(show edit)
+  before_action :set_new_chat_group,        only: %i(new create)
+  before_action :set_existing_chat_group,   only: %i(show edit update)
+  before_action :set_chat_group_attributes, only: %i(create update)
+  before_action :set_chat_groups,           only: %i(show index)
+  before_action :set_users,                 only: %i(new edit create update)
+  before_action :reject_nonmember,          only: %i(show edit)
 
   def index
   end
@@ -12,14 +14,13 @@ class ChatGroupsController < ApplicationController
   end
 
   def new
-    @chat_group = ChatGroup.new
   end
 
   def create
-    @chat_group = ChatGroup.new(chat_group_params)
-    if @chat_group.save
+    if includes_current_user? && @chat_group.save
       redirect_to chat_group_path(@chat_group), notice: '新規グループを作成しました'
     else
+      prepare_error_message
       render :new
     end
   end
@@ -28,16 +29,25 @@ class ChatGroupsController < ApplicationController
   end
 
   def update
-    if @chat_group.update(chat_group_params)
+    if includes_current_user? && @chat_group.save
       redirect_to chat_group_path(@chat_group), notice: 'グループを更新しました'
     else
+      prepare_error_message
       render :edit
     end
   end
 
   private
-  def set_chat_group
+  def set_new_chat_group
+    @chat_group = ChatGroup.new
+  end
+
+  def set_existing_chat_group
     @chat_group = ChatGroup.find(params[:id])
+  end
+
+  def set_chat_group_attributes
+    @chat_group.assign_attributes(chat_group_params)
   end
 
   def set_chat_groups
@@ -54,5 +64,14 @@ class ChatGroupsController < ApplicationController
 
   def reject_nonmember
     redirect_to :root unless current_user.join_in?(@chat_group)
+  end
+
+  def includes_current_user?
+    @chat_group.users.include?(current_user)
+  end
+
+  def prepare_error_message
+      @chat_group.valid?
+      @chat_group.errors.add(:member, 'にご自身を加えて下さい') unless includes_current_user?
   end
 end
