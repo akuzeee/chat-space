@@ -41,7 +41,7 @@ class ChatGroupsController < ApplicationController
   end
 
   def set_chat_groups
-    @chat_groups = current_user.chat_groups.order('created_at DESC')
+    @chat_groups = current_user.chat_groups.order(created_at: :desc)
   end
 
   def set_users
