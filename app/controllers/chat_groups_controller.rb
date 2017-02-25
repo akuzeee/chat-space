@@ -2,6 +2,7 @@ class ChatGroupsController < ApplicationController
   before_action :set_chat_group,  only: %i(show edit update)
   before_action :set_chat_groups, only: %i(show index)
   before_action :set_users,       only: %i(new edit)
+  before_action :redirect,        only: %i(show edit)
 
   def index
   end
@@ -40,7 +41,7 @@ class ChatGroupsController < ApplicationController
   end
 
   def set_chat_groups
-    @chat_groups = ChatGroup.order('created_at DESC')
+    @chat_groups = current_user.chat_groups.order('created_at DESC')
   end
 
   def set_users
@@ -49,5 +50,9 @@ class ChatGroupsController < ApplicationController
 
   def chat_group_params
     params.require(:chat_group).permit(:name, user_ids: [])
+  end
+
+  def redirect
+    redirect_to :root unless GroupMember.exists?(chat_group_id: params[:id], user_id: current_user.id)
   end
 end
