@@ -16,4 +16,4 @@
             %p.chat-group__name #{ chat_group.name }
             %p.chat-group__message
               yeah!
-  = render 'show'
+  = render 'show', chat_group: @chat_group if @chat_group.present?
