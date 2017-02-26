@@ -3,7 +3,7 @@
   .side-content
     .chat-user
       .chat-user__name
-        %h5 #{ current_user.name }
+        %h5 #{current_user.name}
       .chat-user__actions
         = link_to new_chat_group_path, class: 'chat-user__new-group-action' do
           = fa_icon 'pencil-square-o'
