@@ -39,10 +39,10 @@
         .chat-message__body
           aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
   .chat-footer
-    %form#new_message{}
+    = form_for [chat_group, message] do |f|
       .chat-footer__body
-        %textarea#message_body{ placeholder: 'type a message' }
+        = f.text_area :text, placeholder: 'type a message', id: 'message_body'
         %label#img__icon{ for: 'img__file' }
           = fa_icon 'image'
           %input#img__file{ type: 'file' }
-      %input.send-btn{ type: 'submit', value: 'Send' }
+      = f.submit 'Send', class: 'send-btn'

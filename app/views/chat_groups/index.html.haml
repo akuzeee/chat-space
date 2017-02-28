@@ -11,4 +11,4 @@
           = fa_icon 'cog'
     %ul.chat-groups
       = render @chat_groups
-  = render 'messages', chat_group: @chat_group if @chat_group.present?
+  = render 'messages', chat_group: @chat_group, message: @message if @chat_group.present?
