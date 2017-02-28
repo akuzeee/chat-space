@@ -19,7 +19,7 @@ class MessagesController < ApplicationController
   end
 
   def set_current_chat_group
-    @chat_group = ChatGroup.find(params[:chat_group_id])
+    @chat_group = ChatGroup.includes(messages: :user).find(params[:chat_group_id])
   end
 
   def reject_nonmember
