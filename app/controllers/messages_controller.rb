@@ -1,5 +1,5 @@
 class MessagesController < SuperChatsController
-  prepend_before_action :set_current_chat_group, only: :index
+  prepend_before_action :set_chat_group, only: :index
   before_action :set_message,                    only: :index
 
   def index
@@ -12,7 +12,7 @@ class MessagesController < SuperChatsController
   end
 
   private
-  def set_current_chat_group
+  def set_chat_group
     @chat_group = ChatGroup.includes(messages: :user).find(params[:chat_group_id])
   end
 
