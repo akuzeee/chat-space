@@ -1,6 +1,8 @@
-class MessagesController < SuperChatsController
-  prepend_before_action :set_chat_group, only: :index
-  before_action :set_message,                    only: :index
+class MessagesController < ApplicationController
+  before_action :set_chat_group,      only: :index
+  before_action :set_all_chat_groups, only: :index
+  before_action :set_message,         only: :index
+  before_action :reject_nonmember,    only: :index
 
   def index
     render 'layouts/groups'

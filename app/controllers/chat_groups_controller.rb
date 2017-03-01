@@ -1,9 +1,10 @@
-class ChatGroupsController < SuperChatsController
-  prepend_before_action :set_existing_chat_group, only: %i(edit update)
-  skip_before_action :reject_nonmember,     only: :index
+class ChatGroupsController < ApplicationController
+  before_action :set_all_chat_groups,       only: :index
+  before_action :set_existing_chat_group,   only: %i(edit update)
   before_action :set_new_chat_group,        only: %i(new create)
   before_action :set_chat_group_attributes, only: %i(create update)
   before_action :set_users,                 only: %i(new edit create update)
+  before_action :reject_nonmember,          only: :edit
 
   def index
     render 'layouts/groups'
