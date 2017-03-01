@@ -6,6 +6,7 @@ class ChatGroupsController < SuperChatsController
   before_action :set_users,                 only: %i(new edit create update)
 
   def index
+    render 'layouts/groups'
   end
 
   def new

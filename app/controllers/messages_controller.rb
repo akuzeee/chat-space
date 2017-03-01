@@ -3,7 +3,7 @@ class MessagesController < SuperChatsController
   before_action :set_message,                    only: :index
 
   def index
-    render 'chat_groups/index'
+    render 'layouts/groups'
   end
 
   def create
