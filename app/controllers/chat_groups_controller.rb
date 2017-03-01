@@ -1,5 +1,5 @@
 class ChatGroupsController < SuperChatsController
-  prepend_before_action :set_existing_chat_group,   only: %i(edit update)
+  prepend_before_action :set_existing_chat_group, only: %i(edit update)
   skip_before_action :reject_nonmember,     only: :index
   before_action :set_new_chat_group,        only: %i(new create)
   before_action :set_chat_group_attributes, only: %i(create update)
