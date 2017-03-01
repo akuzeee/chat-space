@@ -1,4 +1,5 @@
 class ChatGroupsController < ApplicationController
+  layout        'main_view',                only: :index
   before_action :set_all_chat_groups,       only: :index
   before_action :set_existing_chat_group,   only: %i(edit update)
   before_action :set_new_chat_group,        only: %i(new create)
@@ -7,7 +8,6 @@ class ChatGroupsController < ApplicationController
   before_action :reject_nonmember,          only: :edit
 
   def index
-    render 'layouts/groups'
   end
 
   def new
