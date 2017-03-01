@@ -1,10 +1,9 @@
-class ChatGroupsController < ApplicationController
+class ChatGroupsController < SuperChatsController
+  prepend_before_action :set_existing_chat_group,   only: %i(edit update)
+  skip_before_action :reject_nonmember,     only: :index
   before_action :set_new_chat_group,        only: %i(new create)
-  before_action :set_existing_chat_group,   only: %i(edit update)
   before_action :set_chat_group_attributes, only: %i(create update)
-  before_action :set_chat_groups,           only: :index
   before_action :set_users,                 only: %i(new edit create update)
-  before_action :reject_nonmember,          only: :edit
 
   def index
   end
@@ -46,20 +45,12 @@ class ChatGroupsController < ApplicationController
     @chat_group.assign_attributes(chat_group_params)
   end
 
-  def set_chat_groups
-    @chat_groups = current_user.chat_groups.order(created_at: :desc)
-  end
-
   def set_users
     @users = User.all
   end
 
   def chat_group_params
     params.require(:chat_group).permit(:name, user_ids: [])
-  end
-
-  def reject_nonmember
-    redirect_to :root unless current_user.join_in?(@chat_group)
   end
 
   def includes_current_user?
