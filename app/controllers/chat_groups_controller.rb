@@ -1,16 +1,13 @@
 class ChatGroupsController < ApplicationController
+  layout        'main_view',                only: :index
+  before_action :set_all_chat_groups,       only: :index
+  before_action :set_existing_chat_group,   only: %i(edit update)
   before_action :set_new_chat_group,        only: %i(new create)
-  before_action :set_existing_chat_group,   only: %i(show edit update)
   before_action :set_chat_group_attributes, only: %i(create update)
-  before_action :set_chat_groups,           only: %i(show index)
   before_action :set_users,                 only: %i(new edit create update)
-  before_action :reject_nonmember,          only: %i(show edit)
+  before_action :reject_nonmember,          only: :edit
 
   def index
-  end
-
-  def show
-    render :index
   end
 
   def new
@@ -18,7 +15,7 @@ class ChatGroupsController < ApplicationController
 
   def create
     if includes_current_user? && @chat_group.save
-      redirect_to chat_group_path(@chat_group), notice: '新規グループを作成しました'
+      redirect_to chat_group_messages_path(@chat_group), notice: '新規グループを作成しました'
     else
       prepare_error_message
       render :new
@@ -30,7 +27,7 @@ class ChatGroupsController < ApplicationController
 
   def update
     if includes_current_user? && @chat_group.save
-      redirect_to chat_group_path(@chat_group), notice: 'グループを更新しました'
+      redirect_to chat_group_messages_path(@chat_group), notice: 'グループを更新しました'
     else
       prepare_error_message
       render :edit
@@ -50,20 +47,12 @@ class ChatGroupsController < ApplicationController
     @chat_group.assign_attributes(chat_group_params)
   end
 
-  def set_chat_groups
-    @chat_groups = current_user.chat_groups.order(created_at: :desc)
-  end
-
   def set_users
     @users = User.all
   end
 
   def chat_group_params
     params.require(:chat_group).permit(:name, user_ids: [])
-  end
-
-  def reject_nonmember
-    redirect_to :root unless current_user.join_in?(@chat_group)
   end
 
   def includes_current_user?
