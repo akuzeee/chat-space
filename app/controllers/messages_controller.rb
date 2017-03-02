@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   layout        'main_view'
-  before_action :set_chat_group,      only: :index
-  before_action :set_all_chat_groups, only: :index
+  before_action :set_chat_group,      only: %i(index create)
+  before_action :set_all_chat_groups, only: %i(index create)
   before_action :set_message,         only: :index
   before_action :reject_nonmember,    only: :index
 
@@ -9,8 +9,13 @@ class MessagesController < ApplicationController
   end
 
   def create
-    Message.create(message_params)
-    redirect_to chat_group_messages_path(params[:chat_group_id])
+    @message = Message.new(message_params)
+    if @message.save
+      redirect_to chat_group_messages_path(@message)
+    else
+      flash.now[:alert] = 'メッセージを入力してください'
+      render :index
+    end
   end
 
   private

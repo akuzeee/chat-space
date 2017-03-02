@@ -1,2 +1,3 @@
 - flash.each do |key, value|
-  = content_tag :p, value, class: "notification"
+  .notification
+    = content_tag :p, value, class: "notification--" + key

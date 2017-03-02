@@ -3,10 +3,15 @@ html,body {
   padding: 0;
   margin: 0;
 }
-p.notification {
-  background-color: #38AEF0;
+.notification {
   color: $MainWhiteColor;
   text-align: center;
+  &--notice {
+    background-color: #38AEF0;
+  }
+  &--alert {
+    background-color: #FF4500;
+  }
 }
 .contents {
   position: relative;
