@@ -5,10 +5,6 @@ class ChatGroup < ApplicationRecord
   has_many :messages, ->{ order(created_at: :asc) }
 
   def top_message
-    if messages.present?
-      messages.last.text
-    else
-      'まだメッセージはありません'
-    end
+    messages.present? ? messages.last.text : 'まだメッセージはありません'
   end
 end
