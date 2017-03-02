@@ -8,9 +8,11 @@
           %span.chat-header__user #{user.name}
     .chat-header--right
       = link_to 'Edit', edit_chat_group_path(@chat_group), class: 'chat-header__edit-btn'
+
   .chat-body
     %ul.chat-messages
       = render @chat_group.messages
+
   .chat-footer
     = form_for [@chat_group, @message] do |f|
       .chat-footer__body
