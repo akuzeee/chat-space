@@ -3,7 +3,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   validates_presence_of :name
   has_many :group_members
-  has_many :chat_groups, through: :group_members
+  has_many :chat_groups, ->{ order(created_at: :desc) }, through: :group_members
   has_many :messages
 
   def join_in?(chat_group)
