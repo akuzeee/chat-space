@@ -16,7 +16,7 @@
   .chat-footer
     = form_for [@chat_group, @message] do |f|
       .chat-footer__body
-        = f.text_area :text, placeholder: 'type a message', id: 'message_body'
+        = f.text_area :text, placeholder: 'type a message', id: 'message_body', require: true
         %label#img__icon{ for: 'img__file' }
           = fa_icon 'image'
           %input#img__file{ type: 'file' }
