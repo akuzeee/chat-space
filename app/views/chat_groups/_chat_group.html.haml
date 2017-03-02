@@ -2,4 +2,4 @@
   = link_to chat_group_messages_path(chat_group), class: 'chat-group__link' do
     %p.chat-group__name #{chat_group.name}
     %p.chat-group__message
-      yeah!
+      = chat_group.top_message

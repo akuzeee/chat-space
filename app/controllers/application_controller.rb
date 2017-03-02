@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_all_chat_groups
-    @chat_groups = current_user.chat_groups.all
+    @chat_groups = current_user.chat_groups.includes(:messages).all
   end
 
   def reject_nonmember
