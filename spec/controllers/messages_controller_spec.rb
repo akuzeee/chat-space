@@ -54,7 +54,7 @@ describe MessagesController do
 
   describe 'POST #create' do
     let(:user) { create(:user) }
-    let(:chat_group) { create(:chat_group, user_ids: user.id) }
+    let(:chat_group) { create(:chat_group, users: [user]) }
     before do
       login_user user
     end
