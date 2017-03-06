@@ -28,6 +28,11 @@ describe MessagesController do
           request
           expect(assigns(:chat_groups)).to eq chat_groups
         end
+
+        it 'assigns the requested contact to message' do
+          request
+          expect(assigns(:message)).to be_a_new(Message)
+        end
       end
 
       context 'when current_user does not belong_to chat_group' do
@@ -66,6 +71,17 @@ describe MessagesController do
         expect {
         request
         }.to change(Message, :count).by(1)
+      end
+
+      it 'assigns the requested contact to chat_group' do
+        request
+        expect(assigns(:chat_group)).to eq chat_group
+      end
+
+      it 'assigns the requested contact to chat_groups' do
+        chat_groups = user.chat_groups
+        request
+        expect(assigns(:chat_groups)).to eq chat_groups
       end
     end
 
