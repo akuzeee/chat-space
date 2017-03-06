@@ -68,9 +68,7 @@ describe MessagesController do
       end
 
       it 'saves the new contact in the database' do
-        expect {
-        request
-        }.to change(Message, :count).by(1)
+        expect{ request }.to change(Message, :count).by(1)
       end
 
       it 'contains notice flash message' do
@@ -99,9 +97,7 @@ describe MessagesController do
       end
 
       it 'does not save the new contact' do
-        expect {
-        request
-        }.to_not change(Message,:count)
+        expect{ request }.to_not change(Message,:count)
       end
 
       it 'contains alert flash message' do
