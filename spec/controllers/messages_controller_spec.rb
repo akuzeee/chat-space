@@ -51,41 +51,40 @@ describe MessagesController do
     let(:user) { create(:user) }
     let(:chat_group) { create(:chat_group, user_ids: user.id) }
     before do
-      login_user
-      allow(controller).to receive(:current_user).and_return(user)
+      login_user user
     end
 
     context 'with valid attributes' do
-      let(:message_attributes) { attributes_for(:message, chat_group_id: chat_group.id, user_id: user.id) }
+      let(:request) { post :create, params: { chat_group_id: chat_group, message: attributes_for(:message, chat_group_id: chat_group.id, user_id: user.id) } }
 
       it 'redirects_to chat_groups_messages_path' do
-        post :create, params: { chat_group_id: chat_group, message: message_attributes }
+        request
         expect(response).to redirect_to chat_group_messages_path(chat_group)
       end
 
       it 'saves the new contact in the database' do
-        expect{
-          post :create, params: { chat_group_id: chat_group, message: message_attributes }
+        expect {
+        request
         }.to change(Message, :count).by(1)
       end
     end
 
     context 'with an empty text attribute' do
-      let(:message_attributes) { attributes_for(:message, text: '', chat_group_id: chat_group.id, user_id: user.id) }
+      let(:request) { post :create, params: { chat_group_id: chat_group, message: attributes_for(:message, text: '', chat_group_id: chat_group.id, user_id: user.id) } }
 
       it 're-renders the :index template' do
-        post :create, params: { chat_group_id: chat_group, message: message_attributes }
+        request
         expect(response).to render_template :index
       end
 
       it 'does not save the new contact' do
-        expect{
-          post :create, params: { chat_group_id: chat_group, message: message_attributes }
+        expect {
+        request
         }.to_not change(Message,:count)
       end
 
       it 'contains flash message' do
-        post :create, params: { chat_group_id: chat_group, message: message_attributes }
+        request
         expect(flash.now[:alert]).not_to be_empty
       end
     end
