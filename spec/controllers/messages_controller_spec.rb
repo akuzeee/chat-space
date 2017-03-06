@@ -7,8 +7,7 @@ describe MessagesController do
 
     context 'with logged in user' do
       before do
-        login_user
-        allow(controller).to receive(:current_user).and_return(user)
+        login_user user
       end
 
       context 'when current_user belongs to chat_group' do
