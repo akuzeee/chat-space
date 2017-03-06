@@ -24,7 +24,7 @@ describe MessagesController do
         end
 
         it 'assigns the requested contact to chat_groups' do
-          chat_groups = user.chat_groups.includes(:messages).all
+          chat_groups = user.chat_groups
           request
           expect(assigns(:chat_groups)).to eq chat_groups
         end
