@@ -73,6 +73,11 @@ describe MessagesController do
         }.to change(Message, :count).by(1)
       end
 
+      it 'contains notice flash message' do
+        request
+        expect(flash[:notice]).not_to be_empty
+      end
+
       it 'assigns the requested contact to chat_group' do
         request
         expect(assigns(:chat_group)).to eq chat_group
@@ -99,7 +104,7 @@ describe MessagesController do
         }.to_not change(Message,:count)
       end
 
-      it 'contains flash message' do
+      it 'contains alert flash message' do
         request
         expect(flash.now[:alert]).not_to be_empty
       end
