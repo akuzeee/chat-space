@@ -12,20 +12,19 @@ describe MessagesController do
       end
 
       context 'when current_user belongs to chat_group' do
-        before do
-          get :index, params: { chat_group_id: chat_group }
-        end
-
         it 'renders the :index template' do
+          get :index, params: { chat_group_id: chat_group }
           expect(response).to render_template :index
         end
 
         it 'assigns the requested contact to chat_group' do
+          get :index, params: { chat_group_id: chat_group }
           expect(assigns(:chat_group)).to eq chat_group
         end
 
         it 'assigns the requested contact to chat_groups' do
           chat_groups = user.chat_groups.includes(:messages).all
+          get :index, params: { chat_group_id: chat_group }
           expect(assigns(:chat_groups)).to eq chat_groups
         end
       end
