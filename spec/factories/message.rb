@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :message do
-    user_id       { Faker::Number.between(1, 100) }
-    chat_group_id { Faker::Number.between(1, 100) }
+    user
+    chat_group
     text          { Faker::Pokemon.name }
   end
 end
