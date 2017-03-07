@@ -67,7 +67,7 @@ describe MessagesController do
         expect(response).to redirect_to chat_group_messages_path(chat_group)
       end
 
-      it 'saves the new contact in the database' do
+      it 'saves the new message in the database' do
         expect{ request }.to change(Message, :count).by(1)
       end
 
@@ -101,7 +101,7 @@ describe MessagesController do
         expect(response).to render_template :index
       end
 
-      it 'does not save the new contact' do
+      it 'does not save the new message' do
         expect{ request }.to_not change(Message,:count)
       end
 
