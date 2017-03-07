@@ -18,18 +18,18 @@ describe MessagesController do
           expect(response).to render_template :index
         end
 
-        it 'assigns the requested contact to chat_group' do
+        it 'assigns the requested chat_group to @chat_group' do
           request
           expect(assigns(:chat_group)).to eq chat_group
         end
 
-        it 'assigns the requested contact to chat_groups' do
+        it 'assigns the requested chat_groups to @chat_groups' do
           chat_groups = user.chat_groups
           request
           expect(assigns(:chat_groups)).to eq chat_groups
         end
 
-        it 'assigns the requested contact to message' do
+        it 'assigns the requested message to @message' do
           request
           expect(assigns(:message)).to be_a_new(Message)
         end
@@ -81,12 +81,12 @@ describe MessagesController do
         expect(flash.now[:alert]).to be_nil
       end
 
-      it 'assigns the requested contact to chat_group' do
+      it 'assigns the requested chat_group to @chat_group' do
         request
         expect(assigns(:chat_group)).to eq chat_group
       end
 
-      it 'assigns the requested contact to chat_groups' do
+      it 'assigns the requested chat_groups to @chat_groups' do
         chat_groups = user.chat_groups
         request
         expect(assigns(:chat_groups)).to eq chat_groups
