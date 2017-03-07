@@ -76,6 +76,11 @@ describe MessagesController do
         expect(flash[:notice]).not_to be_empty
       end
 
+      it 'does not contain alert flash message' do
+        request
+        expect(flash.now[:alert]).to be_nil
+      end
+
       it 'assigns the requested contact to chat_group' do
         request
         expect(assigns(:chat_group)).to eq chat_group
@@ -103,6 +108,11 @@ describe MessagesController do
       it 'contains alert flash message' do
         request
         expect(flash.now[:alert]).not_to be_empty
+      end
+
+      it 'does not contain notice flash message' do
+        request
+        expect(flash[:notice]).to be_nil
       end
     end
   end
