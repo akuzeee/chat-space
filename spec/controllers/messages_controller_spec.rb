@@ -73,7 +73,7 @@ describe MessagesController do
 
       it 'contains notice flash message' do
         request
-        expect(flash[:notice]).not_to be_empty
+        expect(flash[:notice]).to eq '新しいメッセージが投稿されました！'
       end
 
       it 'does not contain alert flash message' do
@@ -107,7 +107,7 @@ describe MessagesController do
 
       it 'contains alert flash message' do
         request
-        expect(flash.now[:alert]).not_to be_empty
+        expect(flash.now[:alert]).to eq 'メッセージを入力してください'
       end
 
       it 'does not contain notice flash message' do
