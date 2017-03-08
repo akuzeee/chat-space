@@ -4,6 +4,10 @@ $(function() {
     return html;
   }
 
+  function resetSend() {
+    $('.send-btn').removeAttr('disabled');
+  }
+
   $('#new_message').on('submit', function(e) {
     e.preventDefault();
     var textField = $('#message_body');
@@ -23,9 +27,11 @@ $(function() {
       var html = buildHTML(data);
       $('.chat-messages').append(html);
       textField.val('');
+      resetSend();
     })
     .fail(function() {
       alert('error');
+      resetSend();
     });
   });
 });
