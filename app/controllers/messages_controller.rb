@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
     if @message.save
       respond_to do |format|
         format.html { redirect_to chat_group_messages_path(@chat_group), notice: '新しいメッセージが投稿されました！' }
-        format.json { render json: @message.to_json(include: :user) }
+        format.json { render json: @message.to_builder.target! }
       end
     else
       flash.now[:alert] = 'メッセージを入力してください'
