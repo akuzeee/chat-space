@@ -8,9 +8,10 @@ $(function() {
     e.preventDefault();
     var textField = $('#message_body');
     var text = textField.val();
+    var path = location.pathname;
     $.ajax({
       type: 'POST',
-      url: '/chat_groups/62/messages',
+      url: path,
       data: {
         message: {
           text: text
