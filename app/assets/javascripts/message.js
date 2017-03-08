@@ -1,6 +1,6 @@
 $(function() {
   function buildHTML(message) {
-    var html = $('<li class="chat-message">').append('<p class="chat-message__user-name">' + message.user_name + '</p>', '<span class="chat-message__date">' + message.created_at + '</span>', '<div class="chat-message__body">' + message.text + '</div>');
+    var html = $('<li class="chat-message">').append('<p class="chat-message__user-name">' + message.user.name + '</p>', '<span class="chat-message__date">' + message.created_at + '</span>', '<div class="chat-message__body">' + message.text + '</div>');
     return html;
   }
 
