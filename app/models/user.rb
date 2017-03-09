@@ -9,4 +9,8 @@ class User < ApplicationRecord
   def join_in?(chat_group)
     chat_groups.include?(chat_group)
   end
+
+  def self.search_by_name(name)
+    where('name LIKE(?)', "#{name}%")
+  end
 end

@@ -23,25 +23,36 @@ $(function() {
   }
 
   $('#user-search-field').on('keyup', function() {
-    var selectedUserName = $('.chat-group-user__name--selected').text().replace(/\r?\n/g,"");
-    var selectedUserNames = splitWord(selectedUserName);
-    var regSelectedUserNames = convertToReg(selectedUserNames);
+  //   var selectedUserName = $('.chat-group-user__name--selected').text().replace(/\r?\n/g,"");
+  //   var selectedUserNames = splitWord(selectedUserName);
+  //   var regSelectedUserNames = convertToReg(selectedUserNames);
 
+  //   var input = $('#user-search-field').val();
+  //   var inputs = splitWord(input);
+  //   var newInputs = inputs.map(editElement);
+  //   var reg = convertToReg(newInputs);
+
+  //   if (reg != preWord) {
+  //     $('.searched-user').remove();
+  //     if (inputs.length !== 0) {
+  //       $.each(users_list, function(i, user) {
+  //         if (user.name.match(reg) && !user.name.match(regSelectedUserNames)) {
+  //           appendSelectingList(user);
+  //         }
+  //       });
+  //     }
+  //   }
+  //   preWord = reg;
+  // });
     var input = $('#user-search-field').val();
-    var inputs = splitWord(input);
-    var newInputs = inputs.map(editElement);
-    var reg = convertToReg(newInputs);
-
-    if (reg != preWord) {
-      $('.searched-user').remove();
-      if (inputs.length !== 0) {
-        $.each(users_list, function(i, user) {
-          if (user.name.match(reg) && !user.name.match(regSelectedUserNames)) {
-            appendSelectingList(user);
-          }
-        });
-      }
-    }
-    preWord = reg;
+    $.ajax({
+    type: 'GET',
+    url: 'search',
+    data: ('q=' + input),
+    dataType: 'json'
+    })
+    .done(function(data) {
+      console.log(data);
+    })
   });
 });

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root       'chat_groups#index'
   resources  :chat_groups, except: %i(show destroy) do
     collection do
-      get :search
+      get :search, format: 'json'
     end
     resources :messages, only: %i(index create)
   end

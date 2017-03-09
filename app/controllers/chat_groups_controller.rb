@@ -34,6 +34,10 @@ class ChatGroupsController < ApplicationController
     end
   end
 
+  def search
+    @searched_users = User.search_by_name(params[:q])
+  end
+
   private
   def set_new_chat_group
     @chat_group = ChatGroup.new

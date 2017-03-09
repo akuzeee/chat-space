@@ -1,9 +1,6 @@
 - if chat_group.errors.any?
   = render 'error_flash', errors: chat_group.errors.full_messages
 
-= javascript_tag do
-  users_list = #{raw users.to_json};
-
 = form_for(chat_group) do |f|
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
