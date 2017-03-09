@@ -3,7 +3,7 @@ $(function() {
   var preWord;
 
   function appendSelectingList(user) {
-    var item = $('<div class="chat-group-user searched-user clearfix">').append('<input name= "chat_group[user_ids][]" type= "hidden" value= ' + user.id + '></input>', '<p class="chat-group-user__name">' + user.name + '</p>');
+    var item = $('<div class="chat-group-user searched-user clearfix">').append('<p class="chat-group-user__name">' + user.name);
     searchResult.append(item);
   }
 
