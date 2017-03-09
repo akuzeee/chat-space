@@ -1,6 +1,6 @@
 $(function() {
   var searchResult = $('#user-search-result');
-  var preWord;
+  var preInput;
 
   function appendSearchedList(user) {
     var item = $('<div class="chat-group-user searched-user clearfix">').append('<p class="chat-group-user__name">' + user.name);
@@ -23,7 +23,7 @@ $(function() {
     var regSelectedUserNames = convertToReg(selectedUserNames);
     // 半角スペースを無視して検索
     var input = $('#user-search-field').val().replace(/ /g, '');
-    if (input != preWord) {
+    if (input != preInput) {
       $('.searched-user').remove();
       $.ajax({
       type: 'GET',
@@ -32,7 +32,6 @@ $(function() {
       dataType: 'json'
       })
       .done(function(data) {
-        console.log(data.searched_users[0]);
         if (input.length !== 0) {
           $.each(data.searched_users, function(i, user) {
             if (!user.name.match(regSelectedUserNames)) {
@@ -42,6 +41,6 @@ $(function() {
         }
       })
     }
-    preWord = input;
+    preInput = input;
   });
 });
