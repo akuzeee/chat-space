@@ -45,7 +45,8 @@ $(function() {
     var input = $('#user-search-field').val().replace(/ /g, '');
     if (input != preInput) {
       clearTimeout(preFunc);
-      preFunc = setTimeout(ajaxPost(input), 500);
+      // 引数に無名関数を渡してエラー回避
+      preFunc = setTimeout(function() { ajaxPost(input) }, 500);
     }
     preInput = input;
   });
