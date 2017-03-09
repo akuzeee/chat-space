@@ -24,7 +24,7 @@
       #chat-group-users
         .chat-group-user.clearfix
           %input{ name: 'chat_group[user_ids][]', type: 'hidden', value: current_user.id }
-          %p.chat-group-user__name
+          %p.chat-group-user__name.chat-group-user__name--selected
             = current_user.name
         = render partial: 'user', collection: chat_group.users.where.not(id: current_user)
   .chat-group-form__field.clearfix
