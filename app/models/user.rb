@@ -6,11 +6,9 @@ class User < ApplicationRecord
   has_many :chat_groups, ->{ order(created_at: :desc) }, through: :group_members
   has_many :messages
 
+  scope :search_by_name, -> name { where('name LIKE(?)', name + '%') }
+
   def join_in?(chat_group)
     chat_groups.include?(chat_group)
-  end
-
-  def self.search_by_name(name)
-    where('name LIKE(?)', "#{name}%")
   end
 end
