@@ -2,7 +2,7 @@ $(function() {
   var searchResult = $('#user-search-result');
   var preWord;
 
-  function appendList(user) {
+  function appendSelectingList(user) {
     var item = $('<div class="chat-group-user searched-user clearfix">').append('<input name= "chat_group[user_ids][]" type= "hidden" value= ' + user.id + '></input>', '<p class="chat-group-user__name">' + user.name + '</p>');
     searchResult.append(item);
   }
@@ -12,28 +12,36 @@ $(function() {
     return result;
   }
 
+  function splitWord(word) {
+    var words = word.split(' ').filter(function(e) { return e; });
+    return words;
+  }
+
+  function convertToReg(words) {
+    var reg = RegExp(words.join('|'));
+    return reg;
+  }
+
   $('#user-search-field').on('keyup', function() {
-    var selectedUserName = $('.chat-group-user__name--selected').text()
-    var selectedUserNames = selectedUserName.replace(/\r?\n/g,"");
-    var selectedUserNames = selectedUserNames.split(' ').filter(function(e) { return e; })
-    var selectedUserNames = RegExp(selectedUserNames.join('|'))
+    var selectedUserName = $('.chat-group-user__name--selected').text().replace(/\r?\n/g,"");
+    var selectedUserNames = splitWord(selectedUserName);
+    var regSelectedUserNames = convertToReg(selectedUserNames);
 
     var input = $('#user-search-field').val();
-    var inputs = input.split(' ').filter(function(e) { return e; });
+    var inputs = splitWord(input);
     var newInputs = inputs.map(editElement);
-    var word = newInputs.join('|')
-    var reg = RegExp(word);
+    var reg = convertToReg(newInputs);
 
-    if (word != preWord) {
+    if (reg != preWord) {
       $('.searched-user').remove();
-      if (input.length !== 0) {
+      if (inputs.length !== 0) {
         $.each(users_list, function(i, user) {
-          if (user.name.match(reg)) {
-            appendList(user);
+          if (user.name.match(reg) && !user.name.match(regSelectedUserNames)) {
+            appendSelectingList(user);
           }
         });
       }
     }
-    preWord = word;
+    preWord = reg;
   });
 });
