@@ -1,4 +1,4 @@
-.chat-group-user.clearfix{ data: { user: { id: user.id } } }
+.chat-group-user.chat-group-user--selected.clearfix{ data: { user: { id: user.id } } }
   %input{ name: 'chat_group[user_ids][]', type: 'hidden', value: user.id }
   %p.chat-group-user__name
     = user.name

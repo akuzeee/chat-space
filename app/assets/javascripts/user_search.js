@@ -4,15 +4,15 @@ $(document).on('turbolinks:load', function() {
   var preFunc;
 
   function appendSearchedList(user) {
-    var item = $('<div class="chat-group-user searched-user clearfix" data-user-id=' + user.id + '>').append('<p class="chat-group-user__name">' + user.name, '<a class="chat-group-user__btn chat-group-user__btn--add">追加');
+    var item = $('<div class="chat-group-user chat-group-user--searched clearfix" data-user-id=' + user.id + '>').append('<p class="chat-group-user__name">' + user.name, '<a class="chat-group-user__btn chat-group-user__btn--add">追加');
     searchResult.append(item);
   }
 
   ajaxPost = function(input) {
-    var selectedUserIds = $('.chat-group-user').map(function(i, elm) {
+    var selectedUserIds = $('.chat-group-user--selected').map(function(i, elm) {
       return Number(elm.dataset.userId);
     });
-    $('.searched-user').remove();
+    $('.chat-group-user--searched').remove();
     $.ajax({
     type: 'GET',
     url: '/users/search',
