@@ -10,8 +10,7 @@ $(document).on('turbolinks:load',function() {
     var userBlock = $(this).parent();
     var selectedUser = {
       name: userBlock.find('p').text(),
-      // searchedUserが動的な要素のためかdatasetにアクセスできないのでattrを使う
-      id: userBlock.attr('data-user-id')
+      id: userBlock[0].dataset.userId
     };
     userBlock.remove();
     appendSelectedList(selectedUser);
