@@ -1,4 +1,5 @@
-$(function() {
+$(document).on('turbolinks:load', function() {
+  console.log('loaded')
   var searchResult = $('#user-search-result');
   var preInput;
   var preFunc;
