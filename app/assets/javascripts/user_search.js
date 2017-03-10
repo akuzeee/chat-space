@@ -9,8 +9,8 @@ $(function() {
   }
 
   ajaxPost = function(input) {
-    var selectedUserIds = $('.chat-group-user__id--selected').map(function(i, elm) {
-      return Number(elm.value);
+    var selectedUserIds = $('.chat-group-user').map(function(i, elm) {
+      return Number(elm.dataset.userId);
     });
     $('.searched-user').remove();
     $.ajax({

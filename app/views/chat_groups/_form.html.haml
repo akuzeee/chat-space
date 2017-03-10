@@ -19,8 +19,8 @@
       %label.chat-group-form__label{ for: 'chat_group_チャットメンバー' } チャットメンバー
     .chat-group-form__field--right
       #chat-group-users
-        .chat-group-user.clearfix
-          %input.chat-group-user__id--selected{ name: 'chat_group[user_ids][]', type: 'hidden', value: current_user.id }
+        .chat-group-user.clearfix{ data: { user: { id: current_user.id } } }
+          %input{ name: 'chat_group[user_ids][]', type: 'hidden', value: current_user.id }
           %p.chat-group-user__name.chat-group-user__name--selected
             = current_user.name
         = render partial: 'user', collection: chat_group.users.exclude(current_user)
