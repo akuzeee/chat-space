@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :users, except: %i(index create new edit show update destroy) do
+  resources :users, only: [] do
     collection do
       get :search, format: 'json'
     end
