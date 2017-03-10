@@ -31,7 +31,7 @@ $(function() {
     })
     .done(function(data) {
       if (input.length !== 0) {
-        $.each(data.searched_users, function(i, user) {
+        $.each(data.users, function(i, user) {
           if (!user.name.match(regSelectedUserNames)) {
            appendSearchedList(user);
          }

@@ -1,1 +1,1 @@
-json.searched_users @searched_users, :id, :name
+json.users @users, :id, :name
