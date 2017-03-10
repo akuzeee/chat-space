@@ -5,7 +5,7 @@ $(document).on('turbolinks:load', function() {
   var preFunc;
 
   function appendSearchedList(user) {
-    var item = $('<div class="chat-group-user chat-group-user--searched clearfix" data-user-id=' + user.id + '>').append('<p class="chat-group-user__name">' + user.name, '<a class="chat-group-user__btn chat-group-user__btn--add">追加');
+    var item = $('<div class="chat-group-user chat-group-user--searched clearfix" data-user-id=' + user.id + ' data-user-name=' + user.name + '>').append('<p class="chat-group-user__name">' + user.name, '<a class="chat-group-user__btn chat-group-user__btn--add">追加');
     searchedList.append(item);
   }
 
@@ -52,7 +52,7 @@ $(document).on('turbolinks:load', function() {
   $(document).on('click', '.chat-group-user__btn--add', function() {
     var userBlock = $(this).parent();
     var selectedUser = {
-      name: userBlock.find('p').text(),
+      name: userBlock[0].dataset.userName,
       id: userBlock[0].dataset.userId
     };
     userBlock.remove();
