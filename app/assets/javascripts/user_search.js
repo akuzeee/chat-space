@@ -8,20 +8,10 @@ $(function() {
     searchResult.append(item);
   }
 
-  function splitWord(word) {
-    var words = word.split(' ').filter(function(e) { return e; });
-    return words;
-  }
-
-  function convertToReg(words) {
-    var reg = RegExp(words.join('|'));
-    return reg;
-  }
-
   ajaxPost = function(input) {
-    var selectedUserName = $('.chat-group-user__name--selected').text().replace(/\r?\n/g,"");
-    var selectedUserNames = splitWord(selectedUserName);
-    var regSelectedUserNames = convertToReg(selectedUserNames);
+    var selectedUserIds = $('.chat-group-user__id--selected').map(function(i, elm) {
+      return Number(elm.value);
+    });
     $('.searched-user').remove();
     $.ajax({
     type: 'GET',
@@ -32,8 +22,8 @@ $(function() {
     .done(function(data) {
       if (input.length !== 0) {
         $.each(data.users, function(i, user) {
-          if (!user.name.match(regSelectedUserNames)) {
-           appendSearchedList(user);
+          if ($.inArray(user.id, selectedUserIds) === -1) {
+          appendSearchedList(user);
          }
         });
       }
