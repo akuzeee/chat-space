@@ -4,7 +4,7 @@ $(function() {
   var preFunc;
 
   function appendSearchedList(user) {
-    var item = $('<div class="chat-group-user searched-user clearfix">').append('<p class="chat-group-user__name">' + user.name);
+    var item = $('<div class="chat-group-user searched-user clearfix">').append('<p class="chat-group-user__name">' + user.name, '<a class="chat-group-user__btn chat-group-user__btn--add" data-user-id=' + user.id + '>追加');
     searchResult.append(item);
   }
 
