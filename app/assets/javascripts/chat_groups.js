@@ -52,8 +52,8 @@ $(document).on('turbolinks:load', function() {
   $(document).on('click', '.chat-group-user__btn--add', function() {
     var userBlock = $(this).parent();
     var selectedUser = {
-      name: userBlock[0].dataset.userName,
-      id: userBlock[0].dataset.userId
+      name: userBlock.data('userName'),
+      id: userBlock.data('userId')
     };
     userBlock.remove();
     appendSelectedList(selectedUser);
