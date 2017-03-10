@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :messages
 
   scope :search_by_name, -> name { where('name LIKE(?)', name + '%') }
+  scope :exclude, -> user { where.not(id: user) }
 
   def join_in?(chat_group)
     chat_groups.include?(chat_group)
