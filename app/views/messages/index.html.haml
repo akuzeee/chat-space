@@ -19,5 +19,5 @@
         = f.text_area :text, placeholder: 'type a message', id: 'message_body', require: true
         %label#img__icon{ for: 'img__file' }
           = fa_icon 'image'
-          %input#img__file{ type: 'file' }
+          = f.file_field :image, id: 'img__file'
       = f.submit 'Send', class: 'send-btn'
