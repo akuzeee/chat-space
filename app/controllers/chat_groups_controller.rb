@@ -14,10 +14,9 @@ class ChatGroupsController < ApplicationController
   end
 
   def create
-    if includes_current_user? && @chat_group.save
+    if @chat_group.save
       redirect_to chat_group_messages_path(@chat_group), notice: '新規グループを作成しました'
     else
-      prepare_error_message
       render :new
     end
   end
@@ -26,10 +25,9 @@ class ChatGroupsController < ApplicationController
   end
 
   def update
-    if includes_current_user? && @chat_group.save
+    if @chat_group.save
       redirect_to chat_group_messages_path(@chat_group), notice: 'グループを更新しました'
     else
-      prepare_error_message
       render :edit
     end
   end
@@ -53,14 +51,5 @@ class ChatGroupsController < ApplicationController
 
   def chat_group_params
     params.require(:chat_group).permit(:name, user_ids: [])
-  end
-
-  def includes_current_user?
-    @chat_group.users.include?(current_user)
-  end
-
-  def prepare_error_message
-      @chat_group.valid?
-      @chat_group.errors.add(:member, 'にご自身を加えて下さい') unless includes_current_user?
   end
 end
