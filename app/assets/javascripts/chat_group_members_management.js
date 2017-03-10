@@ -5,6 +5,7 @@ $(function() {
     selectedList.append(item);
   }
 
+  // 追加ボタンでsearchedUserをselectedUserに移動
   $(document).on('click', '.chat-group-user__btn--add', function() {
     var userBlock = $(this).parent();
     var selectedUser = {
@@ -14,5 +15,10 @@ $(function() {
     };
     userBlock.remove();
     appendSelectedList(selectedUser);
+  });
+
+  // 削除ボタンでselectedUserを削除
+  $(document).on('click', '.chat-group-user__btn--remove', function() {
+    $(this).parent().remove();
   });
 });
