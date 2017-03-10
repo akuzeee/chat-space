@@ -1,11 +1,17 @@
 $(document).on('turbolinks:load', function() {
-  var searchResult = $('#user-search-result');
+  var searchedList = $('#user-search-result');
+  var selectedList = $('#chat-group-users');
   var preInput;
   var preFunc;
 
   function appendSearchedList(user) {
     var item = $('<div class="chat-group-user chat-group-user--searched clearfix" data-user-id=' + user.id + '>').append('<p class="chat-group-user__name">' + user.name, '<a class="chat-group-user__btn chat-group-user__btn--add">追加');
-    searchResult.append(item);
+    searchedList.append(item);
+  }
+
+  function appendSelectedList(user) {
+    var item = $('<div class="chat-group-user chat-group-user--selected clearfix" data-user-id=' + user.id + '>').append('<input name="chat_group[user_ids][]", type="hidden", value=' +user.id + ' >', '<p class="chat-group-user__name">' + user.name, '<a class="chat-group-user__btn chat-group-user__btn--remove">削除');
+    selectedList.append(item);
   }
 
   ajaxPost = function(input) {
@@ -30,6 +36,7 @@ $(document).on('turbolinks:load', function() {
     });
   };
 
+  // インクリメンタルサーチ
   $('#user-search-field').on('keyup', function() {
     // 半角スペースを無視して検索
     var input = $('#user-search-field').val().replace(/ /g, '');
@@ -39,5 +46,21 @@ $(document).on('turbolinks:load', function() {
       preFunc = setTimeout(function() { ajaxPost(input) }, 500);
     }
     preInput = input;
+  });
+
+  // 追加ボタンでsearchedUserをselectedUserに移動
+  $(document).on('click', '.chat-group-user__btn--add', function() {
+    var userBlock = $(this).parent();
+    var selectedUser = {
+      name: userBlock.find('p').text(),
+      id: userBlock[0].dataset.userId
+    };
+    userBlock.remove();
+    appendSelectedList(selectedUser);
+  });
+
+  // 削除ボタンでselectedUserを削除
+  $(document).on('click', '.chat-group-user__btn--remove', function() {
+    $(this).parent().remove();
   });
 });
