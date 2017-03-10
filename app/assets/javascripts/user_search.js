@@ -30,7 +30,6 @@ $(function() {
     dataType: 'json'
     })
     .done(function(data) {
-      console.log(data)
       if (input.length !== 0) {
         $.each(data.searched_users, function(i, user) {
           if (!user.name.match(regSelectedUserNames)) {
