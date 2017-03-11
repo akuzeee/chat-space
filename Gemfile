@@ -38,6 +38,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'rails-controller-testing'
+  gem 'pry'
 end
 
 group :development do
@@ -55,5 +56,4 @@ end
 gem 'haml-rails'
 gem 'font-awesome-rails'
 gem 'devise'
-gem 'pry'
 gem 'carrierwave'
