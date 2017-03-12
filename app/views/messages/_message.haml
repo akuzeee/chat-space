@@ -5,3 +5,4 @@
     = message.created_at
   .chat-message__body
     = message.text
+  = image_tag message.image.url if message.image?
