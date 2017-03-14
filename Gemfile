@@ -53,6 +53,10 @@ group :test do
   gem 'faker'
 end
 
+group :production do
+  gem 'unicorn'
+end
+
 gem 'haml-rails'
 gem 'font-awesome-rails'
 gem 'devise'
