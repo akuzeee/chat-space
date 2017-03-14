@@ -1,4 +1,6 @@
 $(document).on('turbolinks:load', function() {
+  var path = location.pathname;
+
   function buildHTML(message) {
     var html = $('<li class="chat-message">').append('<p class="chat-message__user-name">' + message.user.name + '</p>', '<span class="chat-message__date">' + message.created_at + '</span>', '<div class="chat-message__body">' + message.text + '</div>');
     if (message.image.url) {
@@ -11,7 +13,6 @@ $(document).on('turbolinks:load', function() {
     e.preventDefault();
     var textField = $('#message_body');
     var formData = new FormData($('#new_message').get(0));
-    var path = location.pathname;
     $.ajax({
       type:        'POST',
       url:         path,
@@ -33,8 +34,7 @@ $(document).on('turbolinks:load', function() {
     });
   });
 
-  if ($('.chat-messages')[0]) {
-    var path = location.pathname;
+  if (path.match('/messages')) {
     var timer = setInterval(function(){
       $.ajax({
         type:     'GET',
