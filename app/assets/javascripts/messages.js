@@ -1,8 +1,9 @@
 $(document).on('turbolinks:load', function() {
-  var path = location.pathname;
+  var path     = location.pathname;
+  var messages = $('.chat-messages');
 
   function buildHTML(message) {
-    var html = $('<li class="chat-message">').append('<p class="chat-message__user-name">' + message.user.name + '</p>', '<span class="chat-message__date">' + message.created_at + '</span>', '<div class="chat-message__body">' + message.text + '</div>');
+    var html = $('<li class="chat-message" data-message-id ' + message.id + '>').append('<p class="chat-message__user-name">' + message.user.name + '</p>', '<span class="chat-message__date">' + message.created_at + '</span>', '<div class="chat-message__body">' + message.text + '</div>');
     if (message.image.url) {
       html.append('<img src=' + message.image.url + '>');
     }
@@ -23,7 +24,7 @@ $(document).on('turbolinks:load', function() {
     })
     .done(function(data) {
       var html = buildHTML(data);
-      $('.chat-messages').append(html);
+      messages.append(html);
       textField.val('');
     })
     .fail(function() {
@@ -35,6 +36,10 @@ $(document).on('turbolinks:load', function() {
   });
 
   if (path.match('/messages')) {
+    var existedMessageIds = messages.children().map(function(i, elm) {
+      return Number(elm.dataset.messageId);
+    });
+    console.log(existedMessageIds)
     var timer = setInterval(function(){
       $.ajax({
         type:     'GET',
