@@ -32,4 +32,13 @@ $(document).on('turbolinks:load', function() {
       $('.send-btn').removeAttr('disabled');
     });
   });
+
+  setInterval(function(){
+    var path = location.pathname;
+    $.ajax({
+      type:        'GET',
+      url:         path,
+      dataType:    'script'
+    });
+  }, 5000);
 });

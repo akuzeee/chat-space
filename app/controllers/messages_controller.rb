@@ -6,6 +6,10 @@ class MessagesController < ApplicationController
   before_action :reject_nonmember,    only: :index
 
   def index
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
