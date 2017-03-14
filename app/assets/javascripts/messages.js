@@ -36,9 +36,9 @@ $(document).on('turbolinks:load', function() {
   setInterval(function(){
     var path = location.pathname;
     $.ajax({
-      type:        'GET',
-      url:         path,
-      dataType:    'script'
+      type:     'GET',
+      url:       path,
+      dataType: 'script'
     });
   }, 5000);
 });
