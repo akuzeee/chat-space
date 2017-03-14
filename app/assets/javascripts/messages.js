@@ -33,12 +33,18 @@ $(document).on('turbolinks:load', function() {
     });
   });
 
-  setInterval(function(){
-    var path = location.pathname;
-    $.ajax({
-      type:     'GET',
-      url:       path,
-      dataType: 'script'
-    });
-  }, 5000);
+  if ($('.chat-messages')[0]) {
+    var timer = setInterval(function(){
+      var path = location.pathname;
+      $.ajax({
+        type:     'GET',
+        url:       path,
+        dataType: 'script'
+      });
+    }, 5000);
+  }
+  // turbolinks によってページ遷移先にsetIntervalが引き継がれてしまうバグを解除
+  $(this).on('turbolinks:click', function() {
+    clearInterval(timer);
+  });
 });
