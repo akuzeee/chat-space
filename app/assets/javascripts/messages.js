@@ -34,8 +34,8 @@ $(document).on('turbolinks:load', function() {
   });
 
   if ($('.chat-messages')[0]) {
+    var path = location.pathname;
     var timer = setInterval(function(){
-      var path = location.pathname;
       $.ajax({
         type:     'GET',
         url:       path,
