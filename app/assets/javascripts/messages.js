@@ -37,15 +37,15 @@ $(document).on('turbolinks:load', function() {
 
   if (path.match('/messages')) {
     var timer = setInterval(function(){
-      var existedMessageIds = messages.children().map(function(i, elm) {
-        return Number(elm.dataset.messageId);
-      });
       $.ajax({
         type:     'GET',
         url:       path,
         dataType: 'json'
       })
       .done(function(data) {
+        var existedMessageIds = messages.children().map(function(i, elm) {
+          return Number(elm.dataset.messageId);
+        });
         $.each(data, function(i, message) {
           if ($.inArray(message.id, existedMessageIds) === -1) {
             var html = buildHTML(message);
