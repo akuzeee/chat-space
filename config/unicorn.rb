@@ -4,6 +4,10 @@ pid "#{app_path}/shared/tmp/pids/unicorn.pid"
 stderr_path "#{app_path}/shared/log/unicorn.stderr.log"
 stdout_path "#{app_path}/shared/log/unicorn.stdout.log"
 
+before_exec do |server|
+  ENV['BUNDLE_GEMFILE'] = "#{app_path}/Gemfile"
+end
+
 listen 3000
 timeout 60
 
