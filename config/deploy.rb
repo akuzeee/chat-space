@@ -13,7 +13,7 @@ set :ssh_options, auth_methods: ['publickey'],
                   keys: ['~/.ssh/chat-space-ec2.pem']
 
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
-set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
+set :unicorn_config_path, -> { "#{current_path}/current/config/unicorn.rb" }
 
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
