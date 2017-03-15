@@ -7,10 +7,6 @@ stdout_path "#{app_path}/shared/log/unicorn.stdout.log"
 listen 3000
 timeout 60
 
-before_exec do |server|
-  ENV['BUNDLE_GEMFILE'] = "#{app_path}/Gemfile"
-end
-
 preload_app true
 GC.respond_to?(:copy_on_write_friendly=) && GC.copy_on_write_friendly = true
 
