@@ -1,7 +1,6 @@
 # config valid only for current version of Capistrano
 lock '3.8.0'
 
-set :branch, ENV["REVISION"] || ENV["BRANCH_NAME"]
 set :application, 'chat-space'
 set :repo_url, 'git@github.com:akuzeee/chat-space.git'
 
